@@ -1,6 +1,8 @@
 #include <Rcpp.h>
-#include <RcppParallel.h>
 // [[Rcpp::depends(RcppParallel)]]
+#include <RcppParallel.h>
+
+using namespace Rcpp;
 using namespace RcppParallel;
 
 struct Collapse : public Worker

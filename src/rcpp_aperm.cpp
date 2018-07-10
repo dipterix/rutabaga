@@ -1,6 +1,8 @@
+// [[Rcpp::depends(RcppParallel)]]
 #include <Rcpp.h>
 #include <RcppParallel.h>
-// [[Rcpp::depends(RcppParallel)]]
+
+using namespace Rcpp;
 using namespace RcppParallel;
 
 struct ArrayPerm : public Worker

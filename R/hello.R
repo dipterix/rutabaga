@@ -1,3 +1,5 @@
+
+
 #' Collapse a tensor
 #' @usage collapse(x, keep)
 #' @param x A multi-mode tensor (array)
@@ -37,7 +39,7 @@ collapse <- function(x, keep) {
   dims = dim(x)
   keep_sorted = sort(keep)
 
-  re = collapser(x, dims, keep_sorted)
+  re = .Call("_rutabaga_collapser", x, dims, keep_sorted)
   dim(re) = dims[keep_sorted]
 
   if(!isTRUE(all.equal(keep_sorted, keep))){
@@ -59,7 +61,6 @@ collapse <- function(x, keep) {
 #   times = 20L
 # )
 
-#' @export
 arrperm <- function(x, perm){
   dims = dim(x)
   assertthat::assert_that(length(dims) == length(perm), msg = 'perm has incorrect length.')

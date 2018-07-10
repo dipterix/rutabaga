@@ -1,8 +1,8 @@
 #include <Rcpp.h>
-// using namespace Rcpp;
-
 // [[Rcpp::depends(RcppParallel)]]
 #include <RcppParallel.h>
+
+using namespace Rcpp;
 using namespace RcppParallel;
 
 struct Sum : public Worker
