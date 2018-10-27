@@ -4,16 +4,16 @@ Type: Package
 Title: Util Functions for Large Arrays
 Version: 0.1.0
 Author: Zhengjia Wang
-Maintainer: Zhengjia Wang <zhengjia.wang@live.com>
+Maintainer: Zhengjia Wang <dipterix.wang@gmail.com>
 Description: Provides util functions (R, C++) to speed up array calculations.
 License: MIT License
 Encoding: UTF-8
 LazyData: true
 Imports: 
-  Rcpp (>= 0.12.13),
-  RcppParallel,
+    Rcpp (>= 0.12.13),
+    RcppParallel,
 LinkingTo: 
-  Rcpp,
-  RcppParallel,
+    Rcpp,
+    RcppParallel,
 SystemRequirements: GNU make
 RoxygenNote: 6.0.1
