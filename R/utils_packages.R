@@ -8,7 +8,7 @@
 check_installed_packages <- function(pkgs, libs = base::.libPaths(), auto_install = FALSE, ...){
   instp = utils::installed.packages(lib.loc = libs)[,1]
   pkgs = pkgs[!pkgs %in% instp]
-  if(auto_install){
+  if(auto_install && length(pkgs)){
     cat2('Installing packages:', paste0('[', pkgs, ']', collapse = ', '), level = 'INFO')
     do.call('install.packages', c(
       list(pkgs = pkgs),
