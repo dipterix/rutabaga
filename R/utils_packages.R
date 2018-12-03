@@ -1,4 +1,4 @@
-#' Check if packages are installed, returns missing packages
+#' @title Check If Packages Are Installed, Returns Missing Packages
 #' @param pkgs vector of packages to install
 #' @param libs paths of libraries
 #' @param auto_install automatically install packages if missing

@@ -1,6 +1,6 @@
 
 
-#' Collapse sensors and calculate summations/mean
+#' @title Collapse Sensors And Calculate Summations/Mean
 #' @usage collapse(x, keep)
 #' @param x A multi-mode tensor (array)
 #' @param keep Which dimension to keep

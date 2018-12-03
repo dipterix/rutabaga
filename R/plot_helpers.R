@@ -12,7 +12,7 @@ rave_cex.axis <- 1.3
 rave_cex.lab <- 1.4
 # ------------------------------------------------------------------------
 
-#' Create a blank plot with given x and y range
+#' @title Create A Blank Plot With Given X And Y Range
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
@@ -32,7 +32,7 @@ plot_clean = function(
        cex.main=cex.main, cex.axis=cex.axis, cex.lab=cex.lab, ...)
 }
 
-#' Show a blank plot with messages
+#' @title Show A Blank Plot With Messages
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
 #'
@@ -46,7 +46,7 @@ plot_msg <- function(main = 'No Conditions Specified') {
   plot_clean(1, 1, type='n', main=main)
 }
 
-#' A neat way to show axis
+#' @title A Neat Way To Show Axis
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
@@ -74,7 +74,7 @@ rave_axis <- function(
 }
 
 
-#' Draw symmetric error bars
+#' @title Draw Symmetric Error Bars
 #' @examples
 #' \dontrun{
 #' plot_clean(0:10, -1:5, xlab = 'X')
@@ -127,7 +127,7 @@ do_poly <- function(x, y, col, alpha=50, ...) {
   polygon(c(x,rev(x)), rep(y, each=2), col=getAlphaRGB(col, alpha), border=NA, ...)
 }
 
-#' Draw symmetric error bars
+#' @title Draw Symmetric Error Bars
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
@@ -151,7 +151,7 @@ ebar_polygon = function(x, y, sem, alpha=100, col='black', fill=col,
   if(add_line) lines(x,y, col=stroke, lwd=lwd, ...)
 }
 
-#' Get hex color with transparency
+#' @title Get Hex Color With Transparency
 #' @examples
 #' \dontrun{
 #' getAlphaRGB('red', 0.5)
@@ -162,7 +162,7 @@ getAlphaRGB = function(colname, alpha) {
   rgb(t(c), alpha = alpha, maxColorValue = 255)
 }
 
-#' Get elements/slot/attributes from list
+#' @title Get Elements/Slot/Attributes From List
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
@@ -198,7 +198,7 @@ abs_cdiff <- function(m) {
   abs(apply(m, 1, diff))
 }
 
-#' Get a integer interval that contains x
+#' @title Get A Integer Interval That Contains X
 #' @examples
 #' \dontrun{
 #' # 0 - 11
@@ -212,7 +212,7 @@ round_range <- function(x) {
   c(floor(min(x)), ceiling(max(x)))
 }
 
-#' Get data range from a collection of named lists
+#' @title Get Data Range From A Collection Of Named Lists
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
@@ -224,7 +224,7 @@ get_data_range <- function(ll, range_var='range') {
   )
 }
 
-#' barplot function that uses all the rave sizes and colors
+#' @title Barplot Function That Uses All The Rave Sizes And Colors
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
@@ -233,7 +233,7 @@ rave_barplot <- function(height, cex.axis=rave_cex.axis, cex.lab=rave_cex.lab, c
   barplot(height, cex.axis=cex.axis, cex.lab=cex.lab, cex.names=cex.names, las=1, ...)
 }
 
-#' Return jittered x
+#' @title Return Jittered X
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
 #'
@@ -246,7 +246,7 @@ jitr = function(x, len=length(x), r) {
 }
 
 
-#' Same as points, but can be jittered
+#' @title Same As Points, But Can Be Jittered
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
 #'
@@ -255,7 +255,7 @@ add_points = function(x, y, jitr_x=0, pch=19, ...) {
   points(jitr(x, length(y), r=jitr_x), y, pch=pch, ...)
 }
 
-#' Ensure data are within some bounds
+#' @title Ensure Data Are Within Some Bounds
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
@@ -267,7 +267,7 @@ clip_x <- function(x, lim) {
   x
 }
 
-#' Useful for plotting when you want to go a bit beyond the data
+#' @title Useful For Plotting When You Want To Go A Bit Beyond The Data
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
 #'
