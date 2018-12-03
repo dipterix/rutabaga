@@ -157,9 +157,21 @@ getAlphaRGB = function(colname, alpha) {
   rgb(t(c), alpha = alpha, maxColorValue = 255)
 }
 
-#' Get elements
-get_list_elements <- function(ll, name, drop_nulls = TRUE) {
-  l = sapply(ll, getElement, name)
+#' Get elements/slot/attributes from list
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @export
+get_list_elements <- function(ll, name, drop_nulls = TRUE, is_attr = FALSE, use_sapply = TRUE, ...) {
+  if(use_sapply){
+    lapply = sapply
+  }
+  if(is_attr){
+    l = lapply(ll, attr, which = name, ...)
+  }else{
+    l = lapply(ll, getElement, name)
+  }
+
   # remove NULLs
   if(drop_nulls){
     is_v = !vapply(l, is.null, FUN.VALUE = FALSE)
@@ -176,34 +188,73 @@ get_list_elements <- function(ll, name, drop_nulls = TRUE) {
 
 abs_cdiff <- function(m) {
   if(!is.matrix(m))
-    return (1)
+    m = t(as.matrix(m))
 
   abs(apply(m, 1, diff))
 }
 
+#' Get a integer interval that contains x
+#' @examples
+#' \dontrun{
+#' # 0 - 11
+#' round_range(0.5:10.5)
+#' }
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+#'
+#' @export
 round_range <- function(x) {
   c(floor(min(x)), ceiling(max(x)))
 }
 
+#' Get data range from a collection of named lists
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#'
+#' @export
 get_data_range <- function(ll, range_var='range') {
-  unlist(lapply(ll, getElement, range_var)) %>% range(na.rm=TRUE) #%>% round_range
+  range(
+    unlist(lapply(ll, getElement, range_var)),
+    na.rm=TRUE
+  )
 }
 
-# barplot function that uses all the rave sizes and colors
+#' barplot function that uses all the rave sizes and colors
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @export
 rave_barplot <- function(height, cex.axis=rave_cex.axis, cex.lab=rave_cex.lab, cex.names=rave_cex.lab, ...) {
   barplot(height, cex.axis=cex.axis, cex.lab=cex.lab, cex.names=cex.names, las=1, ...)
 }
 
-
-jitr = function(x, len=length(x), r=(1/3)*len) {
+#' Return jittered x
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
+#'
+#' @export
+jitr = function(x, len=length(x), r) {
+  if(missing(r)){
+    r = (1/3)*min(abs_cdiff(sort(unique(x))))
+  }
   x + runif(len, -r, r)
 }
 
-add_points = function(x, y, jitr_x=.2, pch=19, ...) {
+
+#' Same as points, but can be jittered
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+#'
+#' @export
+add_points = function(x, y, jitr_x=0, pch=19, ...) {
   points(jitr(x, length(y), r=jitr_x), y, pch=pch, ...)
 }
 
-# ensure data are within some bounds
+#' Ensure data are within some bounds
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @export
 clip_x <- function(x, lim) {
   x[x<min(lim)] <- min(lim)
   x[x>max(lim)] <- max(lim)
@@ -211,128 +262,17 @@ clip_x <- function(x, lim) {
   x
 }
 
-# useful for plotting when you want to go a bit beyond the data
+#' Useful for plotting when you want to go a bit beyond the data
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
+#'
+#' @export
 stretch <- function(x, pct) {
   d <- pct * diff(range(x))
   c(min(x)-d, max(x)+d)
 }
 
 
-# # # calcluation helpers
-
-# mean +/- se
-m_se <- function(x) c('mean'=mean(x), 'se'=se(x))
-mat_m_se <- function(m, DIM=2) apply(m, DIM, m_se)
-
-se <- function(x, na.rm=FALSE) sd(x, na.rm=na.rm) / sqrt(sum(not_NA(x)))
-
-
-# We're getting some extreme values (way beyond 6SD) so let's trim them out
-trim <- function(x, cutoff=6) {
-  xmed <- median(x)
-  z <- abs(x - xmed) / mad(x, center=xmed)
-  x[z <= cutoff]
-}
-
-trimmed.mean <- function(x, cutoff=4) {
-  mean(trim(x, cutoff))
-}
-
-trimmed.mse <- function(x, cutoff=4) {
-  m_se(trim(x,cutoff))
-}
-
-
-#mean +/- sd
-m_sd <- function(x, na.rm=FALSE) c('mean'=mean(x,na.rm=na.rm), 'sd'=sd(x,na.rm=na.rm))
-
-not_null <- function(x) !is.null(x)
-
-
-# this is primarily used for clauses with side effects (plotting etc)
-do_if <- function(boolean_expression, if_clause, else_clause=NULL) {
-  if(all(boolean_expression))
-    return (if_clause)
-
-  return (else_clause)
-}
-
-# easy way to get +/- from a long vector
-pm <- function(x,d)c(x-d,x+d)
-plus_minus <- function(x,d)c(x-d,x+d)
-
-
-# make it easier to say not is.na in a pipe'd context
-not_NA = function(x) !is.na(x)
-
-# needed to simplify long expressions
-colDiff <- function(m, ord=1:2) m[,ord[1]] - m[,ord[2]]
-
-# 0-1 scale the data so we can manage the plot ranges easily
-scl01 <- function(x) (x-min(x)) / diff(range(x))
-
-#enforce sum to 1, ignoring NA in the sum, but keeping them in the output
-pscl <- function(x) x /sum(x, na.rm=TRUE)
 
 
 
-
-
-
-
-# # # Formatters for statistics
-
-
-# helper function to build value labels
-format_stat <- function(nm, stats=c('b', 't', 'p')) {
-  sapply(stats, function(stat) sprintf('%s(%s)', stat, nm), USE.NAMES = FALSE)
-}
-
-get_f <- function(formula, data) {
-  format_f(lm(formula, data))
-}
-
-format_f <-  function(lm.mod, test_name='All') {
-  nms <- sapply(c('Rsq(%s)', 'F(%s)', 'p(%s)'), sprintf, test_name)
-
-  with(summary(lm.mod), {
-    c(r.squared, fstatistic[1],
-      pf(fstatistic[1], fstatistic[2], fstatistic[3], lower.tail=FALSE))
-  }) %>% set_names(nms) %>% `class<-`('fres')
-}
-
-# relying on a generic here
-pretty.fres <- function(fres) {
-  # don't save intermediate results back into fres or else it changes the type into character,
-  # messing up following lines
-  c(
-    # R2
-    ifelse(fres[1] < 0.01, '<0.01', round(fres[1],2)),
-    #F stat
-    ifelse(fres[2] < 0.01, '<0.01', round(fres[2],1)),
-    #p value
-    format(fres[3], digits=1)
-  ) %>% `class<-`(c('fres', 'character'))
-}
-
-# helper function for t-tests that returns the values wanted by format_stat
-get_t <- function(...) with(t.test(...), c(estimate, statistic, p.value)) %>% `class<-`('tres')
-
-pretty.tres <- function(tres) {
-  mapply(format, tres, digits=c(2,2,1)) %>%
-    set_names(c('m', 't', 'p')) %>% `class<-`(c('tres', 'character'))
-}
-
-# these often won't look pretty unless they are used with pretty
-# e.g., title(main=as.title(pretty(get_t(...))))
-as.title <- function(res, ...) {
-  UseMethod('as.title')
-}
-
-as.title.fres <- function(res, ...) {
-  bquote(H[0] ~ mu[i] == mu[j] * ';' ~ R^2 == .(res[1]) ~ ',' ~ F == .(res[2]) * ','~ p==.(res[3]))
-}
-
-as.title.tres <- function(res,...) {
-  bquote(H[0] * ':' ~ mu == 0 * ';' ~ bar(x)==.(res[1]) * ',' ~ t == .(res[2]) * ',' ~ p==.(res[3]))
-}
