@@ -1,6 +1,6 @@
 
 
-#' Collapse a tensor
+#' Collapse sensors and calculate summations/mean
 #' @usage collapse(x, keep)
 #' @param x A multi-mode tensor (array)
 #' @param keep Which dimension to keep
@@ -35,7 +35,18 @@
 #' )
 #' }
 #' @export
-collapse <- function(x, keep) {
+collapse <- function(x, keep, average = FALSE, data_check = TRUE) {
+
+  if(any(!is.finite(x))){
+    x[!is.finite(x)] = 0
+  }
+
+  if(any(is.complex(x))){
+    re = collapse(Re(x), keep = keep, average = average, data_check = FALSE)
+    im = collapse(Im(x), keep = keep, average = average, data_check = FALSE)
+    return(re + 1i * im)
+  }
+
   dims = dim(x)
   keep_sorted = sort(keep)
 
@@ -46,8 +57,13 @@ collapse <- function(x, keep) {
     re = aperm(re, perm = order(order(keep)))
   }
 
+  if(average){
+    re = re / prod(dims[-keep_sorted])
+  }
+
   return(re)
 }
+
 
 
 

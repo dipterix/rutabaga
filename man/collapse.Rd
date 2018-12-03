@@ -2,7 +2,7 @@
 % Please edit documentation in R/hello.R
 \name{collapse}
 \alias{collapse}
-\title{Collapse a tensor}
+\title{Collapse sensors and calculate summations/mean}
 \usage{
 collapse(x, keep)
 }
@@ -12,7 +12,7 @@ collapse(x, keep)
 \item{keep}{Which dimension to keep}
 }
 \description{
-Collapse a tensor
+Collapse sensors and calculate summations/mean
 }
 \examples{
 \dontrun{

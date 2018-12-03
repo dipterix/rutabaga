@@ -140,6 +140,11 @@ do_poly <- function(x, y, col, alpha=50, ...) {
 #' @export
 ebar_polygon = function(x, y, sem, alpha=100, col='black', fill=col,
                         stroke=col, border = NA, add_line=TRUE, lwd=1, ...) {
+  is_finite = is.finite(y) & is.finite(sem)
+  x = x[is_finite]
+  y = y[is_finite]
+  sem = sem[is_finite]
+
   sem = abs(sem)
   polygon(c(x, rev(x)), c(y + sem, rev(y - sem)), border = border, col = getAlphaRGB(fill, alpha))
 
