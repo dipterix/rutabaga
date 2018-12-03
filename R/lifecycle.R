@@ -8,7 +8,7 @@ lifecycle <- function(stage) {
 
 
 
-#' Help formatting documents
+#' @title Help Formatting Documents
 #' @export
 pretty_package_docs <- function(path = '.'){
   # detect all R files
@@ -17,7 +17,7 @@ pretty_package_docs <- function(path = '.'){
     cat2('Prettify ', f, level = 'INFO')
     s = readLines(f)
     # Find rows with docs - "#'"
-    doc_lines = which(base::grepl("[\\ ]{0}#\\'", s))
+    doc_lines = which(base::grepl("^[\\ ]{0}#\\'", s))
     if(!length(doc_lines)){
       next()
     }
@@ -29,12 +29,12 @@ pretty_package_docs <- function(path = '.'){
       idx = parse_svec(docl)
 
       # find lines with title
-      sel_title = stringr::str_detect(s[idx], "[\\ ]{0}#' @title")
+      sel_title = stringr::str_detect(s[idx], "^[\\ ]{0}#' @title")
 
       if(any(sel_title)){
         idx_title = idx[which(sel_title)[1]]
       }else{
-        sel_title = !stringr::str_detect(s[idx], "[\\ ]{0}#' @")
+        sel_title = !stringr::str_detect(s[idx], "^[\\ ]{0}#' @")
         if(any(sel_title)){
           idx_title = idx[which(sel_title)[1]]
         }else{
@@ -43,7 +43,7 @@ pretty_package_docs <- function(path = '.'){
       }
       if(length(idx_title) == 1){
         # capitalize title
-        title = stringr::str_match(s[idx_title], "([\\ ]{0}#') (?:@title )?(.*)")
+        title = stringr::str_match(s[idx_title], "(^[\\ ]{0}#') (?:@title )?(.*)")
         if(anyNA(title)){
           stop('Error in parsing title ', s[idx_title])
         }

@@ -1,4 +1,4 @@
-#' Color stdout
+#' @title Color Stdout
 #' @importFrom crayon make_style
 #' @param ... to be printed
 #' @param level DEBUG, INFO, WARNING, ERROR, or FATAL (total 5 levels)
@@ -61,7 +61,7 @@ cat2 <- function(
 
 
 
-#' Pipe function to paste two characters
+#' @title Pipe Function To Paste Two Characters
 #' @param x character
 #' @param y character
 #' @return paste0(x,y)

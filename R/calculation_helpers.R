@@ -1,6 +1,6 @@
 # # # calcluation helpers
 
-#' Function to return mean and standard deviation
+#' @title Function To Return Mean And Standard Deviation
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
@@ -17,7 +17,7 @@ se <- function(x, na.rm=FALSE) sd(x, na.rm=na.rm) / sqrt(sum(not_NA(x)))
 
 # We're getting some extreme values (way beyond 6SD) so let's trim them out
 
-#' Trim data by standard error
+#' @title Trim Data By Standard Error
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
@@ -28,7 +28,7 @@ trim <- function(x, cutoff=6) {
   x[z <= cutoff]
 }
 
-#' Mean of data after trimmed
+#' @title Mean Of Data After Trimmed
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
@@ -37,7 +37,7 @@ trimmed.mean <- function(x, cutoff=4) {
   mean(trim(x, cutoff))
 }
 
-#' Sd of data after trimmed
+#' @title Sd Of Data After Trimmed
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
