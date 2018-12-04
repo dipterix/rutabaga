@@ -5,10 +5,14 @@
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
 #' @rdname mean-se
+#'
+#' @param x data
 #' @export
 m_se <- function(x) c('mean'=mean(x), 'se'=se(x))
 
 #' @rdname mean-se
+#' @param m matrix data
+#' @param DIM margin, 1 for row, 2 for column. See \link{apply}
 #' @export
 mat_m_se <- function(m, DIM=2) apply(m, DIM, m_se)
 
@@ -21,6 +25,8 @@ se <- function(x, na.rm=FALSE) sd(x, na.rm=na.rm) / sqrt(sum(not_NA(x)))
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
+#' @param x data to be trimmed
+#' @param cutoff default is 6, then x is clipped +-6 times sd
 #' @export
 trim <- function(x, cutoff=6) {
   xmed <- median(x)
@@ -32,6 +38,7 @@ trim <- function(x, cutoff=6) {
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
+#' @param x,cutoff passed to \link{trim}
 #' @export
 trimmed.mean <- function(x, cutoff=4) {
   mean(trim(x, cutoff))
@@ -41,6 +48,7 @@ trimmed.mean <- function(x, cutoff=4) {
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
+#' @param x,cutoff passed to \link{trim}
 #' @export
 trimmed.mse <- function(x, cutoff=4) {
   m_se(trim(x,cutoff))
@@ -52,6 +60,10 @@ trimmed.mse <- function(x, cutoff=4) {
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
 #' @rdname mean-sd
+#'
+#' @param x data
+#' @param na.rm remove NAs?
+#'
 #' @export
 m_sd <- function(x, na.rm=FALSE) c('mean'=mean(x,na.rm=na.rm), 'sd'=sd(x,na.rm=na.rm))
 
@@ -59,6 +71,7 @@ m_sd <- function(x, na.rm=FALSE) c('mean'=mean(x,na.rm=na.rm), 'sd'=sd(x,na.rm=n
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
+#' @param x data
 #' @export
 not_null <- function(x) !is.null(x)
 
@@ -66,12 +79,17 @@ not_null <- function(x) !is.null(x)
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
+#' @param x data
 #' @export
 not_NA = function(x) !is.na(x)
 
 #' @title Clauses With Side Effects (Plotting Etc)
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#'
+#' @param boolean_expression expression that returns true or false
+#' @param if_clause if true, do if_clause
+#' @param else_clause if false, do else_clause
 #'
 #' @export
 do_if <- function(boolean_expression, if_clause, else_clause=NULL) {
@@ -83,6 +101,9 @@ do_if <- function(boolean_expression, if_clause, else_clause=NULL) {
 
 #' @title Easy Way To Get +/- From A Long Vector
 #' @rdname plus_minus
+#'
+#' @param x data
+#' @param d plus minus value(s)
 #' @export
 pm <- function(x,d)c(x-d,x+d)
 
@@ -99,6 +120,7 @@ colDiff <- function(m, ord=1:2) m[,ord[1]] - m[,ord[2]]
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
+#' @param x data to be rescaled
 #' @export
 scale_01 <- function(x) {
   m = min(x)
@@ -113,6 +135,7 @@ scale_01 <- function(x) {
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
+#' @param x data
 #' @export
 pscl <- function(x) x /sum(x, na.rm=TRUE)
 

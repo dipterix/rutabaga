@@ -6,6 +6,11 @@
 \usage{
 getAlphaRGB(colname, alpha)
 }
+\arguments{
+\item{colname}{name or number of color}
+
+\item{alpha}{transparency}
+}
 \description{
 Get Hex Color With Transparency
 }

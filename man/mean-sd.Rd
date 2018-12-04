@@ -8,6 +8,11 @@
 \usage{
 m_sd(x, na.rm = FALSE)
 }
+\arguments{
+\item{x}{data}
+
+\item{na.rm}{remove NAs?}
+}
 \description{
 Function To Return Mean And Standard Deviation (Na Ignored)
 

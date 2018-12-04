@@ -8,6 +8,9 @@
 \usage{
 plot_msg(main = "No Conditions Specified")
 }
+\arguments{
+\item{main}{the title/msg to show}
+}
 \description{
 Show A Blank Plot With Messages
 

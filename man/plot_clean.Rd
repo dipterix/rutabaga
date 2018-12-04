@@ -10,6 +10,29 @@ plot_clean(xlim, ylim, x = 1, y = 1, type = "n", xlab = "",
   ylab = "", cex.main = rave_cex.main, cex.axis = rave_cex.axis,
   cex.lab = rave_cex.lab, ...)
 }
+\arguments{
+\item{xlim}{numeric vector}
+
+\item{ylim}{numeric vector}
+
+\item{x}{x}
+
+\item{y}{y}
+
+\item{type}{default is 'n', i.e. plot nothing. See \code{\link{plot.default}}}
+
+\item{xlab}{x label}
+
+\item{ylab}{y label}
+
+\item{cex.main}{title font size}
+
+\item{cex.axis}{axis ticks font size}
+
+\item{cex.lab}{axis label font size}
+
+\item{...}{other params passed to \code{plot}}
+}
 \description{
 Create A Blank Plot With Given X And Y Range
 

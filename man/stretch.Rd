@@ -8,6 +8,11 @@
 \usage{
 stretch(x, pct)
 }
+\arguments{
+\item{x}{data}
+
+\item{pct}{stretch percentage}
+}
 \description{
 Useful For Plotting When You Want To Go A Bit Beyond The Data
 

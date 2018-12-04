@@ -3,14 +3,18 @@
 \name{get_f}
 \alias{get_f}
 \alias{format_f}
-\alias{pretty.fres}
 \title{Get statistics from linear model}
 \usage{
 get_f(formula, ...)
 
 format_f(lm.mod, test_name = "All")
+}
+\arguments{
+\item{formula, ...}{passed to \link{lm}}
 
-\method{pretty}{fres}(x, precision = 4, ...)
+\item{lm.mod}{linear model returned by lm()}
+
+\item{test_name}{name}
 }
 \description{
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}

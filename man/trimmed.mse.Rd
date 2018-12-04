@@ -8,6 +8,9 @@
 \usage{
 trimmed.mse(x, cutoff = 4)
 }
+\arguments{
+\item{x, cutoff}{passed to \link{trim}}
+}
 \description{
 Sd Of Data After Trimmed
 

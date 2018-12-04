@@ -9,6 +9,8 @@ lifecycle <- function(stage) {
 
 
 #' @title Help Formatting Documents
+#'
+#' @param path package root path
 #' @export
 pretty_package_docs <- function(path = '.'){
   # detect all R files

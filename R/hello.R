@@ -1,9 +1,13 @@
 
 
 #' @title Collapse Sensors And Calculate Summations/Mean
-#' @usage collapse(x, keep)
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
 #' @param x A multi-mode tensor (array)
 #' @param keep Which dimension to keep
+#' @param average collapse to sum or mean
+#'
 #' @examples
 #' \dontrun{
 #' # Example 1
@@ -35,15 +39,15 @@
 #' )
 #' }
 #' @export
-collapse <- function(x, keep, average = FALSE, data_check = TRUE) {
+collapse <- function(x, keep, average = FALSE) {
 
   if(any(!is.finite(x))){
     x[!is.finite(x)] = 0
   }
 
   if(any(is.complex(x))){
-    re = collapse(Re(x), keep = keep, average = average, data_check = FALSE)
-    im = collapse(Im(x), keep = keep, average = average, data_check = FALSE)
+    re = collapse(Re(x), keep = keep, average = average)
+    im = collapse(Im(x), keep = keep, average = average)
     return(re + 1i * im)
   }
 

@@ -8,6 +8,9 @@
 \usage{
 not_null(x)
 }
+\arguments{
+\item{x}{data}
+}
 \description{
 Return True If Not Null
 

@@ -9,6 +9,11 @@ pm(x, d)
 
 plus_minus(x, d)
 }
+\arguments{
+\item{x}{data}
+
+\item{d}{plus minus value(s)}
+}
 \description{
 Easy Way To Get +/- From A Long Vector
 }

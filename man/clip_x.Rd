@@ -8,6 +8,11 @@
 \usage{
 clip_x(x, lim)
 }
+\arguments{
+\item{x}{data}
+
+\item{lim}{clip range, length of 1 or more. If length(lim) is 1, then the clip is symmetric}
+}
 \description{
 Ensure Data Are Within Some Bounds
 

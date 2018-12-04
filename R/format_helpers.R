@@ -5,6 +5,9 @@
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
+#' @param nm statistics
+#' @param stats names of statistics
+#'
 #' @export
 format_stat <- function(nm, stats=c('b', 't', 'p')) {
   sapply(stats, function(stat) sprintf('%s(%s)', stat, nm), USE.NAMES = FALSE)
@@ -18,12 +21,17 @@ set_class <- .Primitive("class<-")
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
 #' @rdname lm-statistics
+#'
+#' @param formula,... passed to \link{lm}
 #' @export
 get_f <- function(formula, ...) {
   format_f(lm(formula, ...))
 }
 
 #' @rdname lm-statistics
+#'
+#' @param lm.mod linear model returned by lm()
+#' @param test_name name
 #' @export
 format_f <-  function(lm.mod, test_name='All') {
   nms <- sapply(c('Rsq(%s)', 'F(%s)', 'p(%s)'), sprintf, test_name)
@@ -37,7 +45,7 @@ format_f <-  function(lm.mod, test_name='All') {
   re
 }
 
-#' @rdname lm-statistics
+#' @param precision precisions for numbers
 #' @export
 pretty.fres <- function(x, precision = 4, ...) {
   if(is.character(x)){
@@ -55,6 +63,7 @@ pretty.fres <- function(x, precision = 4, ...) {
 #'
 #' #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
+#' @param ... passed to \link{t.test}
 #' @rdname t-test-statistics
 #' @export
 get_t <- function(...){
@@ -62,7 +71,8 @@ get_t <- function(...){
   set_class(re, 'tres')
 }
 
-#' @rdname t-test-statistics
+#' @param ... ignored
+#'
 #' @export
 pretty.tres <- function(x, ...) {
   if(is.character(x)){
@@ -74,7 +84,10 @@ pretty.tres <- function(x, ...) {
   re
 }
 
-#' Convert t-test
+#' Make nice plot titles
+#'
+#' @param x title content
+#' @param ... pass to other methods
 #'
 #' @examples
 #' \dontrun{
@@ -97,6 +110,10 @@ as_title <- function(x, ...) {
   UseMethod('as_title')
 }
 
+
+
+
+
 #' @rdname as_title
 #' @export
 as_title.formula <- function(x, ...){
@@ -106,6 +123,8 @@ as_title.formula <- function(x, ...){
 }
 
 #' @rdname as_title
+#' @param capitalize_all make the first letter cap
+#' @param excluded exclude making first letter cap, numeric vector
 #' @export
 as_title.default <- function(
   x, capitalize_all = TRUE, excluded = c(

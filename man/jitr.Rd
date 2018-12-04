@@ -8,6 +8,13 @@
 \usage{
 jitr(x, len = length(x), r)
 }
+\arguments{
+\item{x}{data}
+
+\item{len}{length of x}
+
+\item{r}{jitter size}
+}
 \description{
 Return Jittered X
 

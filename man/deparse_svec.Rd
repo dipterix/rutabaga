@@ -9,6 +9,17 @@
 deparse_svec(nums, connect = "-", concatenate = T, collapse = ",",
   max_lag = 1)
 }
+\arguments{
+\item{nums}{integer vector}
+
+\item{connect}{character used to connect consecutive numbers}
+
+\item{concatenate}{connect strings if there are multiples}
+
+\item{collapse}{if concatenate, character used to connect strings}
+
+\item{max_lag}{defines "consecutive", min = 1}
+}
 \description{
 Convert Integer Vectors To String
 
