@@ -2,10 +2,14 @@
 % Please edit documentation in R/plot_helpers.R
 \name{stretch}
 \alias{stretch}
-\title{Useful for plotting when you want to go a bit beyond the data}
+\title{Useful For Plotting When You Want To Go A Bit Beyond The Data
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}}
 \usage{
 stretch(x, pct)
 }
 \description{
+Useful For Plotting When You Want To Go A Bit Beyond The Data
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
 }

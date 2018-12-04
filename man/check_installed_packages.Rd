@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils_packages.R
 \name{check_installed_packages}
 \alias{check_installed_packages}
-\title{Check if packages are installed, returns missing packages}
+\title{Check If Packages Are Installed, Returns Missing Packages}
 \usage{
 check_installed_packages(pkgs, libs = base::.libPaths(),
   auto_install = FALSE, ...)
@@ -17,5 +17,5 @@ check_installed_packages(pkgs, libs = base::.libPaths(),
 \item{...}{other params for \code{install.packages}}
 }
 \description{
-Check if packages are installed, returns missing packages
+Check If Packages Are Installed, Returns Missing Packages
 }

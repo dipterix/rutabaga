@@ -1,5 +1,13 @@
 # String operations
 
+#' @title Parse Text Into Numeric Vectors
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @examples
+#' \dontrun{
+#' parse_svec('1-10, 13:15,14-20')
+#' }
 #' @export
 parse_svec <- function(text, sep = ',', connect = '-:|', sort = F, unique = T){
   connect = unlist(stringr::str_split(connect, ''))
@@ -45,10 +53,17 @@ parse_svec <- function(text, sep = ',', connect = '-:|', sort = F, unique = T){
   return(re)
 }
 
-
-#' @import stringr
+#' @title Convert Integer Vectors To String
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @examples
+#' \dontrun{
+#' deparse_svec(c(1:10, 15:18))
+#' }
 #' @export
 deparse_svec <- function(nums, connect = '-', concatenate = T, collapse = ',', max_lag = 1){
+  nums = nums[is.finite(nums)]
   if(length(nums) == 0){
     return('')
   }

@@ -2,10 +2,14 @@
 % Please edit documentation in R/plot_helpers.R
 \name{jitr}
 \alias{jitr}
-\title{Return jittered x}
+\title{Return Jittered X
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}}
 \usage{
 jitr(x, len = length(x), r)
 }
 \description{
+Return Jittered X
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
 }

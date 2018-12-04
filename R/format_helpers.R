@@ -1,56 +1,145 @@
 # # # Formatters for statistics
 
 
-# helper function to build value labels
+#' helper function to build value labels
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#'
+#' @export
 format_stat <- function(nm, stats=c('b', 't', 'p')) {
   sapply(stats, function(stat) sprintf('%s(%s)', stat, nm), USE.NAMES = FALSE)
 }
 
-get_f <- function(formula, data) {
-  format_f(lm(formula, data))
+set_names <- .Primitive("names<-")
+set_class <- .Primitive("class<-")
+
+#' Get statistics from linear model
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#'
+#' @rdname lm-statistics
+#' @export
+get_f <- function(formula, ...) {
+  format_f(lm(formula, ...))
 }
 
+#' @rdname lm-statistics
+#' @export
 format_f <-  function(lm.mod, test_name='All') {
   nms <- sapply(c('Rsq(%s)', 'F(%s)', 'p(%s)'), sprintf, test_name)
 
-  with(summary(lm.mod), {
+  re = with(summary(lm.mod), {
     c(r.squared, fstatistic[1],
       pf(fstatistic[1], fstatistic[2], fstatistic[3], lower.tail=FALSE))
-  }) %>% set_names(nms) %>% `class<-`('fres')
+  })
+  re = set_names(re, nms)
+  set_class(re, 'fres')
+  re
 }
 
-# relying on a generic here
-pretty.fres <- function(fres) {
+#' @rdname lm-statistics
+#' @export
+pretty.fres <- function(x, precision = 4, ...) {
+  if(is.character(x)){
+    return(x)
+  }
   # don't save intermediate results back into fres or else it changes the type into character,
   # messing up following lines
-  c(
-    # R2
-    ifelse(fres[1] < 0.01, '<0.01', round(fres[1],2)),
-    #F stat
-    ifelse(fres[2] < 0.01, '<0.01', round(fres[2],1)),
-    #p value
-    format(fres[3], digits=1)
-  ) %>% `class<-`(c('fres', 'character'))
+  fmt = sprintf('%%.%dg', precision)
+  re = sprintf(fmt, x)
+  set_class(re, c('fres', 'character'))
+  re
 }
 
-# helper function for t-tests that returns the values wanted by format_stat
-get_t <- function(...) with(t.test(...), c(estimate, statistic, p.value)) %>% `class<-`('tres')
-
-pretty.tres <- function(tres) {
-  mapply(format, tres, digits=c(2,2,1)) %>%
-    set_names(c('m', 't', 'p')) %>% `class<-`(c('tres', 'character'))
+#' helper function for t-tests that returns the values wanted by format_stat
+#'
+#' #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#'
+#' @rdname t-test-statistics
+#' @export
+get_t <- function(...){
+  re = with(t.test(...), c(estimate, statistic, p.value))
+  set_class(re, 'tres')
 }
 
-# these often won't look pretty unless they are used with pretty
-# e.g., title(main=as.title(pretty(get_t(...))))
-as.title <- function(res, ...) {
-  UseMethod('as.title')
+#' @rdname t-test-statistics
+#' @export
+pretty.tres <- function(x, ...) {
+  if(is.character(x)){
+    return(x)
+  }
+  re = mapply(format, x, digits=c(2,2,1))
+  set_names(re, c('m', 't', 'p'))
+  set_class(re, c('tres', 'character'))
+  re
 }
 
-as.title.fres <- function(res, ...) {
+#' Convert t-test
+#'
+#' @examples
+#' \dontrun{
+#' # Display normal title
+#' plot_clean(1,1, main = as_title('this is title'))
+#'
+#' # Only capitalize the first character
+#' plot_clean(1,1, main = as_title('this is title', capitalize_all = F))
+#'
+#' # What if title is a formula
+#' plot_clean(1,1, main = as_title(p[value](beta[1]) < ~.(0.01) ~ ' is significant'))
+#'
+#' # Display t-statistics
+#' plot_clean(1,1)
+#' t_stat = get_t(rnorm(10))
+#' title(main=as_title(t_stat))
+#' }
+#' @export
+as_title <- function(x, ...) {
+  UseMethod('as_title')
+}
+
+#' @rdname as_title
+#' @export
+as_title.formula <- function(x, ...){
+  expr = eval(substitute(x))
+
+  do.call(bquote, list(expr = expr))
+}
+
+#' @rdname as_title
+#' @export
+as_title.default <- function(
+  x, capitalize_all = TRUE, excluded = c(
+  'is', 'are', 'vs', 'v.s.', 'from', 'of', 'be', 'for', 'over'
+  ), ...){
+  if(!capitalize_all){
+    if(grepl('^[a-z]', x)){
+      y = stringr::str_sub(x, end = 1)
+      stringr::str_sub(x, end = 1) = toupper(y)
+    }
+    return(x)
+  }
+
+  x = stringr::str_split(x, ' ')
+  x = unlist(x)
+  x = stringr::str_trim(x)
+  x = x[!x == '']
+  sel = !x %in% excluded
+  if(any(sel)){
+    x[sel] = stringr::str_to_title(x[sel])
+  }
+  paste(x, collapse = ' ')
+}
+
+#' @rdname as_title
+#' @export
+as_title.fres <- function(x, ...) {
+  res = pretty.fres(x, ...)
   bquote(H[0] ~ mu[i] == mu[j] * ';' ~ R^2 == .(res[1]) ~ ',' ~ F == .(res[2]) * ','~ p==.(res[3]))
 }
 
-as.title.tres <- function(res,...) {
+#' @rdname as_title
+#' @export
+as_title.tres <- function(x,...) {
+  res = pretty.tres(x, ...)
   bquote(H[0] * ':' ~ mu == 0 * ';' ~ bar(x)==.(res[1]) * ',' ~ t == .(res[2]) * ',' ~ p==.(res[3]))
 }

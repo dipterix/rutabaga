@@ -2,13 +2,17 @@
 % Please edit documentation in R/plot_helpers.R
 \name{plot_clean}
 \alias{plot_clean}
-\title{Create a blank plot with given x and y range}
+\title{Create A Blank Plot With Given X And Y Range
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
 \usage{
 plot_clean(xlim, ylim, x = 1, y = 1, type = "n", xlab = "",
   ylab = "", cex.main = rave_cex.main, cex.axis = rave_cex.axis,
   cex.lab = rave_cex.lab, ...)
 }
 \description{
+Create A Blank Plot With Given X And Y Range
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 }
 \examples{

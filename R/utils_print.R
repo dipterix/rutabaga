@@ -65,19 +65,7 @@ cat2 <- function(
 #' @param x character
 #' @param y character
 #' @return paste0(x,y)
-paste_c <- function(x, y){
+`%&%` <- function(x, y){
   base::paste0(x, y)
 }
 
-#' @importFrom Matrix %&%
-NULL
-
-methods::setMethod("%&%",  methods::signature(x = "character", y = 'ANY'),
-                   definition = paste_c, where = -1)
-methods::setMethod("%&%",  methods::signature(x = "ANY", y = 'character'),
-                   definition = paste_c, where = -1)
-methods::setMethod("%&%",  methods::signature(x = "character", y = 'character'),
-                   definition = paste_c, where = -1)
-
-#' @exportMethod %&%
-NULL

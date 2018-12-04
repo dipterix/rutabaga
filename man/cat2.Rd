@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils_print.R
 \name{cat2}
 \alias{cat2}
-\title{Color stdout}
+\title{Color Stdout}
 \usage{
 cat2(..., level = "DEBUG", print_level = FALSE, file = "",
   sep = " ", fill = FALSE, labels = NULL, append = FALSE,
@@ -29,7 +29,7 @@ cat2(..., level = "DEBUG", print_level = FALSE, file = "",
 \item{pal}{a named list defining colors see details}
 }
 \description{
-Color stdout
+Color Stdout
 }
 \details{
 There are five levels by default: DEBUG, INFO, WARNING, ERROR, or FATAL.

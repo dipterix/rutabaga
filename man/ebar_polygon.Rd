@@ -2,12 +2,16 @@
 % Please edit documentation in R/plot_helpers.R
 \name{ebar_polygon}
 \alias{ebar_polygon}
-\title{Draw symmetric error bars}
+\title{Draw Symmetric Error Bars
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
 \usage{
 ebar_polygon(x, y, sem, alpha = 100, col = "black", fill = col,
   stroke = col, border = NA, add_line = TRUE, lwd = 1, ...)
 }
 \description{
+Draw Symmetric Error Bars
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 }
 \examples{

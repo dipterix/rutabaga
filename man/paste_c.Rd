@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils_print.R
 \name{paste_c}
 \alias{paste_c}
-\title{Pipe function to paste two characters}
+\title{Pipe Function To Paste Two Characters}
 \usage{
 paste_c(x, y)
 }
@@ -15,5 +15,5 @@ paste_c(x, y)
 paste0(x,y)
 }
 \description{
-Pipe function to paste two characters
+Pipe Function To Paste Two Characters
 }

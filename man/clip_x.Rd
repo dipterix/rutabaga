@@ -2,10 +2,14 @@
 % Please edit documentation in R/plot_helpers.R
 \name{clip_x}
 \alias{clip_x}
-\title{Ensure data are within some bounds}
+\title{Ensure Data Are Within Some Bounds
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
 \usage{
 clip_x(x, lim)
 }
 \description{
+Ensure Data Are Within Some Bounds
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 }

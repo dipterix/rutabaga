@@ -2,10 +2,14 @@
 % Please edit documentation in R/plot_helpers.R
 \name{add_points}
 \alias{add_points}
-\title{Same as points, but can be jittered}
+\title{Same As Points, But Can Be Jittered
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}}
 \usage{
 add_points(x, y, jitr_x = 0, pch = 19, ...)
 }
 \description{
+Same As Points, But Can Be Jittered
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
 }
