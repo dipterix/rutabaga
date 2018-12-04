@@ -2,19 +2,24 @@
 % Please edit documentation in R/plot_helpers.R
 \name{round_range}
 \alias{round_range}
-\title{Get A Integer Interval That Contains X}
+\title{Get A Integer Interval That Contains X
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}}
 \usage{
 round_range(x)
 }
+\arguments{
+\item{x}{vector/matrix, numeric}
+}
 \description{
 Get A Integer Interval That Contains X
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
 }
 \examples{
 \dontrun{
 # 0 - 11
 round_range(0.5:10.5)
 }
-
-\\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
 
 }

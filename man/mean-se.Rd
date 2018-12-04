@@ -11,6 +11,13 @@ m_se(x)
 
 mat_m_se(m, DIM = 2)
 }
+\arguments{
+\item{x}{data}
+
+\item{m}{matrix data}
+
+\item{DIM}{margin, 1 for row, 2 for column. See \link{apply}}
+}
 \description{
 Function To Return Mean And Standard Error
 

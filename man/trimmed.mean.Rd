@@ -8,6 +8,9 @@
 \usage{
 trimmed.mean(x, cutoff = 4)
 }
+\arguments{
+\item{x, cutoff}{passed to \link{trim}}
+}
 \description{
 Mean Of Data After Trimmed
 

@@ -9,6 +9,19 @@
 get_list_elements(ll, name, drop_nulls = TRUE, is_attr = FALSE,
   use_sapply = TRUE, ...)
 }
+\arguments{
+\item{ll}{list of elements}
+
+\item{name}{attribute/name/slot to extract}
+
+\item{drop_nulls}{drop NULL results}
+
+\item{is_attr}{are we extracting attributes?}
+
+\item{use_sapply}{try to return a matrix/vector if possible?}
+
+\item{...}{if is_attr, additional params to \code{\link{attr}}}
+}
 \description{
 Get Elements/Slot/Attributes From List
 

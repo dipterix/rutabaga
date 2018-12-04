@@ -10,6 +10,15 @@ rave_axis(side, at, tcl = -0.3, labels = at, las = 1,
   cex.axis = rave_cex.axis, cex.lab = rave_cex.lab, mgpy = c(3, 0.6,
   0), mgpx = c(3, 0.75, 0), ...)
 }
+\arguments{
+\item{side}{1 to 4: bottom, left, up, right. See \code{\link{axis}}}
+
+\item{at, tcl, labels, las, mgpy, mgpx, ...}{passed to \code{\link{axis}}}
+
+\item{cex.axis}{tick size}
+
+\item{cex.lab}{label size}
+}
 \description{
 A Neat Way To Show Axis
 

@@ -6,6 +6,11 @@
 \usage{
 format_stat(nm, stats = c("b", "t", "p"))
 }
+\arguments{
+\item{nm}{statistics}
+
+\item{stats}{names of statistics}
+}
 \description{
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 }

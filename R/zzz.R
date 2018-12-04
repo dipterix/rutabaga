@@ -2,7 +2,7 @@
 
 package_installed <- function(pkgs, all = FALSE){
   re = sapply(pkgs, function(p){
-    !is.null(find.package(p))
+    system.file('', package = p) != ''
   })
   if(all){
     re = all(re)

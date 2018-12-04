@@ -6,6 +6,9 @@
 \usage{
 pretty_package_docs(path = ".")
 }
+\arguments{
+\item{path}{package root path}
+}
 \description{
 Help Formatting Documents
 }
