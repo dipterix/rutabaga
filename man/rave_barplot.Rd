@@ -2,11 +2,15 @@
 % Please edit documentation in R/plot_helpers.R
 \name{rave_barplot}
 \alias{rave_barplot}
-\title{barplot function that uses all the rave sizes and colors}
+\title{Barplot Function That Uses All The Rave Sizes And Colors
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
 \usage{
 rave_barplot(height, cex.axis = rave_cex.axis, cex.lab = rave_cex.lab,
   cex.names = rave_cex.lab, ...)
 }
 \description{
+Barplot Function That Uses All The Rave Sizes And Colors
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 }

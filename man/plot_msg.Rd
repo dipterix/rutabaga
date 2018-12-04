@@ -2,11 +2,15 @@
 % Please edit documentation in R/plot_helpers.R
 \name{plot_msg}
 \alias{plot_msg}
-\title{Show a blank plot with messages}
+\title{Show A Blank Plot With Messages
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}}
 \usage{
 plot_msg(main = "No Conditions Specified")
 }
 \description{
+Show A Blank Plot With Messages
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
 }
 \examples{
