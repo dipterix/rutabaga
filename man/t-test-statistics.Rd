@@ -2,12 +2,12 @@
 % Please edit documentation in R/format_helpers.R
 \name{get_t}
 \alias{get_t}
-\alias{pretty.tres}
 \title{helper function for t-tests that returns the values wanted by format_stat}
 \usage{
 get_t(...)
-
-\method{pretty}{tres}(x, ...)
+}
+\arguments{
+\item{...}{passed to \link{t.test}}
 }
 \description{
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}

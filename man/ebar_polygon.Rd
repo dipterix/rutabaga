@@ -9,6 +9,27 @@
 ebar_polygon(x, y, sem, alpha = 100, col = "black", fill = col,
   stroke = col, border = NA, add_line = TRUE, lwd = 1, ...)
 }
+\arguments{
+\item{x, y}{plot data}
+
+\item{sem}{error bar half width}
+
+\item{alpha}{transparency}
+
+\item{col}{color}
+
+\item{fill}{error bar color}
+
+\item{stroke}{if add lines, line color}
+
+\item{border}{errorbar border width}
+
+\item{add_line}{add line(x,y) or not}
+
+\item{lwd}{line weight}
+
+\item{...}{passed to \code{\link{lines}}}
+}
 \description{
 Draw Symmetric Error Bars
 

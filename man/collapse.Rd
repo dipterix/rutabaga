@@ -2,17 +2,23 @@
 % Please edit documentation in R/hello.R
 \name{collapse}
 \alias{collapse}
-\title{Collapse Sensors And Calculate Summations/Mean}
+\title{Collapse Sensors And Calculate Summations/Mean
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
 \usage{
-collapse(x, keep)
+collapse(x, keep, average = FALSE)
 }
 \arguments{
 \item{x}{A multi-mode tensor (array)}
 
 \item{keep}{Which dimension to keep}
+
+\item{average}{collapse to sum or mean}
 }
 \description{
 Collapse Sensors And Calculate Summations/Mean
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 }
 \examples{
 \dontrun{

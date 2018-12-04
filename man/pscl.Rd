@@ -8,6 +8,9 @@
 \usage{
 pscl(x)
 }
+\arguments{
+\item{x}{data}
+}
 \description{
 Enforce Sum To 1, Ignoring Na In The Sum, But Keeping Them In The Output
 

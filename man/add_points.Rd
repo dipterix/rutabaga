@@ -8,6 +8,15 @@
 \usage{
 add_points(x, y, jitr_x = 0, pch = 19, ...)
 }
+\arguments{
+\item{x, y}{plot data}
+
+\item{jitr_x}{jitter shift size for x}
+
+\item{pch}{data point type, default is 19, See \code{\link{points}}}
+
+\item{...}{other params to \code{\link{jitr}}}
+}
 \description{
 Same As Points, But Can Be Jittered
 

@@ -8,6 +8,11 @@
 \usage{
 trim(x, cutoff = 6)
 }
+\arguments{
+\item{x}{data to be trimmed}
+
+\item{cutoff}{default is 6, then x is clipped +-6 times sd}
+}
 \description{
 Trim Data By Standard Error
 

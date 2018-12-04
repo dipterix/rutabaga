@@ -6,7 +6,14 @@
 
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}}
 \usage{
-get_data_range(ll, range_var = "range")
+get_data_range(ll, name = "range", ...)
+}
+\arguments{
+\item{ll}{list}
+
+\item{name}{element name}
+
+\item{...}{additional params for \link{get_list_elements}}
 }
 \description{
 Get Data Range From A Collection Of Named Lists

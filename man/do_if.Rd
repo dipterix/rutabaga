@@ -8,6 +8,13 @@
 \usage{
 do_if(boolean_expression, if_clause, else_clause = NULL)
 }
+\arguments{
+\item{boolean_expression}{expression that returns true or false}
+
+\item{if_clause}{if true, do if_clause}
+
+\item{else_clause}{if false, do else_clause}
+}
 \description{
 Clauses With Side Effects (Plotting Etc)
 

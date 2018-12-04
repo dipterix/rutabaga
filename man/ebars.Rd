@@ -7,6 +7,23 @@
 ebars(x, y = NULL, sem = NULL, length = 0.05, type = "n",
   col = "black", pt.col = col, code = 2, ...)
 }
+\arguments{
+\item{x, y}{data to plot}
+
+\item{sem}{error range (half)}
+
+\item{length}{line length}
+
+\item{type}{type of xy data see \link{points}}
+
+\item{col}{default color for points and error areas}
+
+\item{pt.col}{point colors}
+
+\item{code}{arrow code}
+
+\item{...}{other params passed to ebars.y}
+}
 \description{
 Draw Symmetric Error Bars
 }

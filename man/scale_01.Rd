@@ -8,6 +8,9 @@
 \usage{
 scale_01(x)
 }
+\arguments{
+\item{x}{data to be rescaled}
+}
 \description{
 0-1 Scale The Data So We Can Manage The Plot Ranges Easily
 

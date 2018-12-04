@@ -12,9 +12,30 @@ rave_cex.axis <- 1.3
 rave_cex.lab <- 1.4
 # ------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
 #' @title Create A Blank Plot With Given X And Y Range
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @param xlim numeric vector
+#' @param ylim numeric vector
+#' @param x x
+#' @param y y
+#' @param type default is 'n', i.e. plot nothing. See \code{\link{plot.default}}
+#' @param xlab x label
+#' @param ylab y label
+#' @param cex.main title font size
+#' @param cex.axis axis ticks font size
+#' @param cex.lab axis label font size
+#' @param ... other params passed to \code{plot}
 #'
 #' @examples
 #' \dontrun{
@@ -22,7 +43,7 @@ rave_cex.lab <- 1.4
 #' plot_clean(0:10, 1:5, xlab = 'X')
 #' }
 #' @export
-plot_clean = function(
+plot_clean <- function(
   xlim, ylim, x = 1, y = 1, type = "n", xlab="", ylab="",
   cex.main=rave_cex.main, cex.axis=rave_cex.axis, cex.lab=rave_cex.lab,...
 ) {
@@ -32,9 +53,28 @@ plot_clean = function(
        cex.main=cex.main, cex.axis=cex.axis, cex.lab=cex.lab, ...)
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #' @title Show A Blank Plot With Messages
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+#'
+#' @param main the title/msg to show
 #'
 #' @export
 #' @examples
@@ -46,9 +86,29 @@ plot_msg <- function(main = 'No Conditions Specified') {
   plot_clean(1, 1, type='n', main=main)
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #' @title A Neat Way To Show Axis
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @param side 1 to 4: bottom, left, up, right. See \code{\link{axis}}
+#' @param at,tcl,labels,las,mgpy,mgpx,... passed to \code{\link{axis}}
+#' @param cex.axis tick size
+#' @param cex.lab label size
 #'
 #' @examples
 #' \dontrun{
@@ -75,6 +135,15 @@ rave_axis <- function(
 
 
 #' @title Draw Symmetric Error Bars
+#'
+#' @param x,y data to plot
+#' @param sem error range (half)
+#' @param length line length
+#' @param type type of xy data see \link{points}
+#' @param col default color for points and error areas
+#' @param pt.col point colors
+#' @param code arrow code
+#' @param ... other params passed to ebars.y
 #' @examples
 #' \dontrun{
 #' plot_clean(0:10, -1:5, xlab = 'X')
@@ -82,7 +151,7 @@ rave_axis <- function(
 #' ebars(x = c(2, 4), y = c(0, 3), sem = c(1, 0.5), col = c(2, 3))
 #' }
 #' @export
-ebars = function(x, y=NULL, sem=NULL, length = 0.05, type='n', col='black', pt.col=col, code=2, ...) {
+ebars <- function(x, y=NULL, sem=NULL, length = 0.05, type='n', col='black', pt.col=col, code=2, ...) {
   if(is.null(y)) {
     if(is.matrix(x)) {
       y <- x[,1]
@@ -109,11 +178,11 @@ ebars = function(x, y=NULL, sem=NULL, length = 0.05, type='n', col='black', pt.c
 }
 
 
-ebars.x = function(x, y, sem, length = 0.05, ...) {
+ebars.x <- function(x, y, sem, length = 0.05, ...) {
   arrows(x - sem, y, x + sem, y, angle = 90, code = 3, length = length, ...)
 }
 
-ebars.y = function(x, y, sem, length = 0.05, up = T, down = T, code = 2, ...) {
+ebars.y <- function(x, y, sem, length = 0.05, up = T, down = T, code = 2, ...) {
   if (up) {
     arrows(x0 = x, y0 = as.numeric(y), y1 = as.numeric(y + sem), angle = 90, code = code, length = length, ...)
   }
@@ -131,6 +200,18 @@ do_poly <- function(x, y, col, alpha=50, ...) {
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
+#' @param x,y plot data
+#' @param sem error bar half width
+#' @param alpha transparency
+#' @param col color
+#' @param fill error bar color
+#' @param stroke if add lines, line color
+#' @param border errorbar border width
+#' @param add_line add line(x,y) or not
+#' @param lwd line weight
+#' @param ... passed to \code{\link{lines}}
+#'
+#'
 #' @examples
 #' \dontrun{
 #' plot_clean(0:10, -1:5, xlab = 'X')
@@ -138,7 +219,7 @@ do_poly <- function(x, y, col, alpha=50, ...) {
 #' ebar_polygon(1:10, (1:10)/2, rnorm(10))
 #' }
 #' @export
-ebar_polygon = function(x, y, sem, alpha=100, col='black', fill=col,
+ebar_polygon <- function(x, y, sem, alpha=100, col='black', fill=col,
                         stroke=col, border = NA, add_line=TRUE, lwd=1, ...) {
   is_finite = is.finite(y) & is.finite(sem)
   x = x[is_finite]
@@ -151,20 +232,41 @@ ebar_polygon = function(x, y, sem, alpha=100, col='black', fill=col,
   if(add_line) lines(x,y, col=stroke, lwd=lwd, ...)
 }
 
+
+
+
+
+
+
 #' @title Get Hex Color With Transparency
+#'
+#' @param colname name or number of color
+#' @param alpha transparency
+#'
 #' @examples
 #' \dontrun{
 #' getAlphaRGB('red', 0.5)
 #' }
 #' @export
-getAlphaRGB = function(colname, alpha) {
+getAlphaRGB <- function(colname, alpha) {
   c = col2rgb(colname)
   rgb(t(c), alpha = alpha, maxColorValue = 255)
 }
 
+
+
+
+
 #' @title Get Elements/Slot/Attributes From List
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @param ll list of elements
+#' @param name attribute/name/slot to extract
+#' @param drop_nulls drop NULL results
+#' @param is_attr are we extracting attributes?
+#' @param use_sapply try to return a matrix/vector if possible?
+#' @param ... if is_attr, additional params to \code{\link{attr}}
 #'
 #' @export
 get_list_elements <- function(ll, name, drop_nulls = TRUE, is_attr = FALSE, use_sapply = TRUE, ...) {
@@ -199,27 +301,39 @@ abs_cdiff <- function(m) {
 }
 
 #' @title Get A Integer Interval That Contains X
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+#'
+#' @param x vector/matrix, numeric
+#'
 #' @examples
 #' \dontrun{
 #' # 0 - 11
 #' round_range(0.5:10.5)
 #' }
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
-#'
 #' @export
 round_range <- function(x) {
   c(floor(min(x)), ceiling(max(x)))
 }
 
+
+
+
+
+
 #' @title Get Data Range From A Collection Of Named Lists
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 #'
+#' @param ll list
+#' @param name element name
+#' @param ... additional params for \link{get_list_elements}
 #' @export
-get_data_range <- function(ll, range_var='range') {
+get_data_range <- function(ll, name='range', ...) {
+  re = get_list_elements(ll, name = name, ...)
   range(
-    unlist(lapply(ll, getElement, range_var)),
+    unlist(re),
     na.rm=TRUE
   )
 }
@@ -228,17 +342,28 @@ get_data_range <- function(ll, range_var='range') {
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
+#' @param height,cex.axis,cex.lab,cex.names,... passed to \link{barplot} but the default values are changed
+#'
 #' @export
 rave_barplot <- function(height, cex.axis=rave_cex.axis, cex.lab=rave_cex.lab, cex.names=rave_cex.lab, ...) {
   barplot(height, cex.axis=cex.axis, cex.lab=cex.lab, cex.names=cex.names, las=1, ...)
 }
 
+
+
+
+
+
 #' @title Return Jittered X
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
 #'
+#' @param x data
+#' @param len length of x
+#' @param r jitter size
+#'
 #' @export
-jitr = function(x, len=length(x), r) {
+jitr <- function(x, len=length(x), r) {
   if(missing(r)){
     r = (1/3)*min(abs_cdiff(sort(unique(x))))
   }
@@ -246,21 +371,49 @@ jitr = function(x, len=length(x), r) {
 }
 
 
+
+
+
+
+
+
+
+
 #' @title Same As Points, But Can Be Jittered
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
 #'
+#' @param x,y plot data
+#' @param jitr_x jitter shift size for x
+#' @param pch data point type, default is 19, See \code{\link{points}}
+#' @param ... other params to \code{\link{jitr}}
 #' @export
-add_points = function(x, y, jitr_x=0, pch=19, ...) {
+add_points <- function(x, y, jitr_x=0, pch=19, ...) {
   points(jitr(x, length(y), r=jitr_x), y, pch=pch, ...)
 }
+
+
+
+
+
+
+
+
+
+
+
 
 #' @title Ensure Data Are Within Some Bounds
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 #'
+#' @param x data
+#' @param lim clip range, length of 1 or more. If length(lim) is 1, then the clip is symmetric
 #' @export
 clip_x <- function(x, lim) {
+  if(length(lim) == 1){
+    lim = c(lim, -lim)
+  }
   x[x<min(lim)] <- min(lim)
   x[x>max(lim)] <- max(lim)
 
@@ -271,6 +424,8 @@ clip_x <- function(x, lim) {
 #'
 #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
 #'
+#' @param x data
+#' @param pct stretch percentage
 #' @export
 stretch <- function(x, pct) {
   d <- pct * diff(range(x))

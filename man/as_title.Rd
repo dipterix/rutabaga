@@ -6,7 +6,7 @@
 \alias{as_title.default}
 \alias{as_title.fres}
 \alias{as_title.tres}
-\title{Convert t-test}
+\title{Make nice plot titles}
 \usage{
 as_title(x, ...)
 
@@ -19,8 +19,17 @@ as_title(x, ...)
 
 \method{as_title}{tres}(x, ...)
 }
+\arguments{
+\item{x}{title content}
+
+\item{...}{pass to other methods}
+
+\item{capitalize_all}{make the first letter cap}
+
+\item{excluded}{exclude making first letter cap, numeric vector}
+}
 \description{
-Convert t-test
+Make nice plot titles
 }
 \examples{
 \dontrun{

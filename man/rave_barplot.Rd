@@ -9,6 +9,9 @@
 rave_barplot(height, cex.axis = rave_cex.axis, cex.lab = rave_cex.lab,
   cex.names = rave_cex.lab, ...)
 }
+\arguments{
+\item{height, cex.axis, cex.lab, cex.names, ...}{passed to \link{barplot} but the default values are changed}
+}
 \description{
 Barplot Function That Uses All The Rave Sizes And Colors
 

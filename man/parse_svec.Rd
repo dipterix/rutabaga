@@ -8,6 +8,17 @@
 \usage{
 parse_svec(text, sep = ",", connect = "-:|", sort = F, unique = T)
 }
+\arguments{
+\item{text}{string with chunks, e.g. \code{"1-10, 14, 16-20, 18-30"} has 4 chunks}
+
+\item{sep}{default is ",", character used to separate chunks}
+
+\item{connect}{characters defining connection links for example "1:10" is the same as "1-10"}
+
+\item{sort}{sort the result}
+
+\item{unique}{extract unique elements}
+}
 \description{
 Parse Text Into Numeric Vectors
 
