@@ -2,10 +2,14 @@
 % Please edit documentation in R/plot_helpers.R
 \name{get_data_range}
 \alias{get_data_range}
-\title{Get data range from a collection of named lists}
+\title{Get Data Range From A Collection Of Named Lists
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}}
 \usage{
 get_data_range(ll, range_var = "range")
 }
 \description{
+Get Data Range From A Collection Of Named Lists
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
 }

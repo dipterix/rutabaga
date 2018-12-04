@@ -2,11 +2,15 @@
 % Please edit documentation in R/plot_helpers.R
 \name{get_list_elements}
 \alias{get_list_elements}
-\title{Get elements/slot/attributes from list}
+\title{Get Elements/Slot/Attributes From List
+
+\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
 \usage{
 get_list_elements(ll, name, drop_nulls = TRUE, is_attr = FALSE,
   use_sapply = TRUE, ...)
 }
 \description{
+Get Elements/Slot/Attributes From List
+
 \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
 }

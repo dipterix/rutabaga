@@ -2,12 +2,12 @@
 % Please edit documentation in R/plot_helpers.R
 \name{round_range}
 \alias{round_range}
-\title{Get a integer interval that contains x}
+\title{Get A Integer Interval That Contains X}
 \usage{
 round_range(x)
 }
 \description{
-Get a integer interval that contains x
+Get A Integer Interval That Contains X
 }
 \examples{
 \dontrun{

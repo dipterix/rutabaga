@@ -2,12 +2,12 @@
 % Please edit documentation in R/plot_helpers.R
 \name{getAlphaRGB}
 \alias{getAlphaRGB}
-\title{Get hex color with transparency}
+\title{Get Hex Color With Transparency}
 \usage{
 getAlphaRGB(colname, alpha)
 }
 \description{
-Get hex color with transparency
+Get Hex Color With Transparency
 }
 \examples{
 \dontrun{

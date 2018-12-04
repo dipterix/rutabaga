@@ -2,13 +2,13 @@
 % Please edit documentation in R/plot_helpers.R
 \name{ebars}
 \alias{ebars}
-\title{Draw symmetric error bars}
+\title{Draw Symmetric Error Bars}
 \usage{
 ebars(x, y = NULL, sem = NULL, length = 0.05, type = "n",
   col = "black", pt.col = col, code = 2, ...)
 }
 \description{
-Draw symmetric error bars
+Draw Symmetric Error Bars
 }
 \examples{
 \dontrun{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/hello.R
 \name{collapse}
 \alias{collapse}
-\title{Collapse sensors and calculate summations/mean}
+\title{Collapse Sensors And Calculate Summations/Mean}
 \usage{
 collapse(x, keep)
 }
@@ -12,7 +12,7 @@ collapse(x, keep)
 \item{keep}{Which dimension to keep}
 }
 \description{
-Collapse sensors and calculate summations/mean
+Collapse Sensors And Calculate Summations/Mean
 }
 \examples{
 \dontrun{
