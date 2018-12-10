@@ -45,6 +45,7 @@ format_f <-  function(lm.mod, test_name='All') {
   re
 }
 
+#' @noRd
 #' @param precision precisions for numbers
 #' @export
 pretty.fres <- function(x, precision = 4, ...) {
@@ -71,6 +72,7 @@ get_t <- function(...){
   set_class(re, 'tres')
 }
 
+#' @noRd
 #' @param ... ignored
 #'
 #' @export
