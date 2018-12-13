@@ -6,8 +6,8 @@
 #' @importFrom utils install.packages
 #' @export
 check_installed_packages <- function(pkgs, libs = base::.libPaths(), auto_install = FALSE, ...){
-  instp = utils::installed.packages(lib.loc = libs)[,1]
-  pkgs = pkgs[!pkgs %in% instp]
+  installed = sapply(pkgs, package_installed)
+  pkgs = pkgs[!installed]
   if(auto_install && length(pkgs)){
     cat2('Installing packages:', paste0('[', pkgs, ']', collapse = ', '), level = 'INFO')
     do.call('install.packages', c(
