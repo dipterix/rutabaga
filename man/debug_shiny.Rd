@@ -5,7 +5,7 @@
 \title{Function to debug shiny script interactively (Needs RStudio)}
 \usage{
 debug_shiny(expr, monitor_dirs, env = parent.frame(), action = NULL,
-  action_env = env)
+  action_env = env, force_eval = FALSE)
 }
 \arguments{
 \item{expr}{an expression ends with shinyApp}
@@ -25,7 +25,7 @@ Function to debug shiny script interactively (Needs RStudio)
 \dontrun{
 # Create a shinyapp that monitors your desktop
 # if there is any change to your desktop, the app
-# will re-run
+# will re-launch
 
 library(shiny)
 debug_shiny({

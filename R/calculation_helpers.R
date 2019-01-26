@@ -142,3 +142,16 @@ pscl <- function(x) x /sum(x, na.rm=TRUE)
 
 
 
+#' @title Check if a is within the range of b
+#'
+#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#'
+#' @param a element to check (numeric)
+#' @param b vector of numbers
+#' @export
+is_within <- function(a, b){
+  (a >= min(b)) & (a <= max(b))
+}
+
+#' @export
+`%within%` <- is_within

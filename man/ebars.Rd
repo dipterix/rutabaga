@@ -30,7 +30,7 @@ Draw Symmetric Error Bars
 \examples{
 \dontrun{
 plot_clean(0:10, -1:5, xlab = 'X')
-rave_axis(side = 2, at = -1:8)
+ruta_axis(side = 2, at = -1:8)
 ebars(x = c(2, 4), y = c(0, 3), sem = c(1, 0.5), col = c(2, 3))
 }
 }

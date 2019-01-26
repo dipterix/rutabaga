@@ -1,5 +1,9 @@
 # nocov start
 
+#' Check if a package is installed
+#' @param pkgs vector of package names
+#' @param all only returns ONE TRUE if all packages are installed. Default is FALSE.
+#' @export
 package_installed <- function(pkgs, all = FALSE){
   re = sapply(pkgs, function(p){
     system.file('', package = p) != ''

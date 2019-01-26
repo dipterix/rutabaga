@@ -38,7 +38,7 @@ Draw Symmetric Error Bars
 \examples{
 \dontrun{
 plot_clean(0:10, -1:5, xlab = 'X')
-rave_axis(side = 2, at = -1:8)
+ruta_axis(side = 2, at = -1:8)
 ebar_polygon(1:10, (1:10)/2, rnorm(10))
 }
 }

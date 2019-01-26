@@ -114,15 +114,15 @@ plot_msg <- function(main = 'No Conditions Specified') {
 #' \dontrun{
 #' # create a blank plot with x from 0 to 10 and y from 1 to 5
 #' plot_clean(0:10, 1:5, xlab = 'X')
-#' rave_axis(side = 1, at = 1:8)
+#' ruta_axis(side = 1, at = 1:8)
 #' }
 #' @export
-rave_axis <- function(
+ruta_axis <- function(
   side, at, tcl=-0.3, labels=at, las=1, cex.axis=rave_cex.axis,
   cex.lab=rave_cex.lab, mgpy=c(3, .6, 0), mgpx=c(3, .75, 0), ...) {
   if(length(side) > 1) {
     return (invisible(sapply(
-      side, rave_axis, at=at, tcl=tcl, labels=labels,
+      side, ruta_axis, at=at, tcl=tcl, labels=labels,
       cex.axis=cex.axis, las=las, cex.lab=cex.lab, ...)
     ))
   }
@@ -147,7 +147,7 @@ rave_axis <- function(
 #' @examples
 #' \dontrun{
 #' plot_clean(0:10, -1:5, xlab = 'X')
-#' rave_axis(side = 2, at = -1:8)
+#' ruta_axis(side = 2, at = -1:8)
 #' ebars(x = c(2, 4), y = c(0, 3), sem = c(1, 0.5), col = c(2, 3))
 #' }
 #' @export
@@ -215,7 +215,7 @@ do_poly <- function(x, y, col, alpha=50, ...) {
 #' @examples
 #' \dontrun{
 #' plot_clean(0:10, -1:5, xlab = 'X')
-#' rave_axis(side = 2, at = -1:8)
+#' ruta_axis(side = 2, at = -1:8)
 #' ebar_polygon(1:10, (1:10)/2, rnorm(10))
 #' }
 #' @export
@@ -431,8 +431,5 @@ stretch <- function(x, pct) {
   d <- pct * diff(range(x))
   c(min(x)-d, max(x)+d)
 }
-
-
-
 
 
