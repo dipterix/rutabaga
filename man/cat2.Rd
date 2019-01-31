@@ -6,8 +6,8 @@
 \usage{
 cat2(..., level = "DEBUG", print_level = FALSE, file = "",
   sep = " ", fill = FALSE, labels = NULL, append = FALSE,
-  pal = list(DEBUG = "grey60", INFO = "#1d9f34", WARNING = "#ec942c",
-  ERROR = "#f02c2c", FATAL = "#763053", DEFAULT = "#000000"))
+  end = "\\n", pal = list(DEBUG = "grey60", INFO = "#1d9f34", WARNING =
+  "#ec942c", ERROR = "#f02c2c", FATAL = "#763053", DEFAULT = "#000000"))
 }
 \arguments{
 \item{...}{to be printed}

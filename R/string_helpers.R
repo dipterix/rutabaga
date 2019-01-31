@@ -123,7 +123,7 @@ deparse_svec <- function(nums, connect = '-', concatenate = T, collapse = ',', m
 cat2 <- function(
   ..., level = 'DEBUG', print_level = FALSE,
   file = "", sep = " ", fill = FALSE, labels = NULL,
-  append = FALSE, pal = list(
+  append = FALSE, end = '\n', pal = list(
     'DEBUG' = 'grey60',
     'INFO' = '#1d9f34',
     'WARNING' = '#ec942c',
@@ -148,7 +148,7 @@ cat2 <- function(
       base::cat('[', level, ']: ', sep = '')
     }
 
-    base::cat(col(..., sep = sep), '\n', file = file, fill = fill, labels = labels, append = append)
+    base::cat(col(..., sep = sep), end = end, file = file, fill = fill, labels = labels, append = append)
 
   }else{
     # Just use cat
