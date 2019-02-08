@@ -191,7 +191,7 @@ ebars.y <- function(x, y, sem, length = 0.05, up = T, down = T, code = 2, ...) {
   }
 }
 
-
+#' @export
 do_poly <- function(x, y, col, alpha=50, ...) {
   polygon(c(x,rev(x)), rep(y, each=2), col=getAlphaRGB(col, alpha), border=NA, ...)
 }
