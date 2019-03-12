@@ -1,12 +1,12 @@
 Package: rutabaga
 Type: Package
-Title: R Util Tools for Analysis and Visualizations
+Title: Simple R Tools for Analysis and Visualizations
 Version: 0.1.6
 Authors@R: c(
     person(given = "Zhengjia", family = "Wang", email = "zhengjia.wang@rice.edu", role = c("aut", "cre", "cph")),
     person(given = "John", family = "Magnotti", email = "john.magnotti@bcm.edu", role = c("aut", "cph"))
   )
-Description: Provides util functions (R, C++) to speed up array calculations. 
+Description: Provides functions (R, C++) to speed up array calculations. 
     Includes various tools for prettier visualizations via R base plots. 
 License: GPL-3
 Encoding: UTF-8
