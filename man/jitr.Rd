@@ -4,7 +4,7 @@
 \alias{jitr}
 \title{Return Jittered X
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}}
+(experimental)}
 \usage{
 jitr(x, len = length(x), r)
 }
@@ -18,5 +18,5 @@ jitr(x, len = length(x), r)
 \description{
 Return Jittered X
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
+(experimental)
 }

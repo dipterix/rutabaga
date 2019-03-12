@@ -3,7 +3,7 @@
 
 #' helper function to build value labels
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#' (questioning)
 #'
 #' @param nm statistics
 #' @param stats names of statistics
@@ -18,7 +18,7 @@ set_class <- .Primitive("class<-")
 
 #' Get statistics from linear model
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#' (questioning)
 #'
 #' @rdname lm-statistics
 #'
@@ -62,7 +62,7 @@ pretty.fres <- function(x, precision = 4, ...) {
 
 #' helper function for t-tests that returns the values wanted by format_stat
 #'
-#' #' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#' (questioning)
 #'
 #' @param ... passed to \link{t.test}
 #' @rdname t-test-statistics

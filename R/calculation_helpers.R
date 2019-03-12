@@ -2,7 +2,7 @@
 
 #' @title Function To Return Mean And Standard Error
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @rdname mean-se
 #'
@@ -23,7 +23,7 @@ se <- function(x, na.rm=FALSE) sd(x, na.rm=na.rm) / sqrt(sum(not_NA(x)))
 
 #' @title Trim Data By Standard Error
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param x data to be trimmed
 #' @param cutoff default is 6, then x is clipped +-6 times sd
@@ -36,7 +36,7 @@ trim <- function(x, cutoff=6) {
 
 #' @title Mean Of Data After Trimmed
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#' (questioning)
 #'
 #' @param x,cutoff passed to \link{trim}
 #' @export
@@ -46,7 +46,7 @@ trimmed.mean <- function(x, cutoff=4) {
 
 #' @title Sd Of Data After Trimmed
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#' (questioning)
 #'
 #' @param x,cutoff passed to \link{trim}
 #' @export
@@ -57,7 +57,7 @@ trimmed.mse <- function(x, cutoff=4) {
 
 #' @title Function To Return Mean And Standard Deviation (Na Ignored)
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @rdname mean-sd
 #'
@@ -69,7 +69,7 @@ m_sd <- function(x, na.rm=FALSE) c('mean'=mean(x,na.rm=na.rm), 'sd'=sd(x,na.rm=n
 
 #' @title Return True If Not Null
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param x data
 #' @export
@@ -77,7 +77,7 @@ not_null <- function(x) !is.null(x)
 
 #' @title Return True If Not Na
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param x data
 #' @export
@@ -85,7 +85,7 @@ not_NA = function(x) !is.na(x)
 
 #' @title Clauses With Side Effects (Plotting Etc)
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#' (questioning)
 #'
 #' @param boolean_expression expression that returns true or false
 #' @param if_clause if true, do if_clause
@@ -118,7 +118,7 @@ colDiff <- function(m, ord=1:2) m[,ord[1]] - m[,ord[2]]
 
 #' @title 0-1 Scale The Data So We Can Manage The Plot Ranges Easily
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param x data to be rescaled
 #' @export
@@ -133,7 +133,7 @@ scale_01 <- function(x) {
 
 #' @title Enforce Sum To 1, Ignoring Na In The Sum, But Keeping Them In The Output
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#' (questioning)
 #'
 #' @param x data
 #' @export
@@ -144,14 +144,16 @@ pscl <- function(x) x /sum(x, na.rm=TRUE)
 
 #' @title Check if a is within the range of b
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param a element to check (numeric)
 #' @param b vector of numbers
+#' @rdname is_within
 #' @export
 is_within <- function(a, b){
   (a >= min(b)) & (a <= max(b))
 }
 
+#' @rdname is_within
 #' @export
 `%within%` <- is_within

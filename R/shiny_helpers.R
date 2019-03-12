@@ -7,6 +7,7 @@
 #' @param env environment to evaluate \code{expr}, with side effect
 #' @param action NULL, or expression to evaluate once \code{monitor_dirs} is changed
 #' @param action_env  environment to evaluate \code{action}, with side effect
+#' @param force_eval force evaluation
 #'
 #' @examples
 #' \dontrun{

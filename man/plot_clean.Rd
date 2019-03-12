@@ -4,7 +4,7 @@
 \alias{plot_clean}
 \title{Create A Blank Plot With Given X And Y Range
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 plot_clean(xlim, ylim, x = 1, y = 1, type = "n", xlab = "",
   ylab = "", cex.main = rave_cex.main, cex.axis = rave_cex.axis,
@@ -36,7 +36,7 @@ plot_clean(xlim, ylim, x = 1, y = 1, type = "n", xlab = "",
 \description{
 Create A Blank Plot With Given X And Y Range
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }
 \examples{
 \dontrun{

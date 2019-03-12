@@ -4,7 +4,7 @@
 \alias{trim}
 \title{Trim Data By Standard Error
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 trim(x, cutoff = 6)
 }
@@ -16,5 +16,5 @@ trim(x, cutoff = 6)
 \description{
 Trim Data By Standard Error
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

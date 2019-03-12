@@ -4,7 +4,7 @@
 \alias{do_if}
 \title{Clauses With Side Effects (Plotting Etc)
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}}
+(questioning)}
 \usage{
 do_if(boolean_expression, if_clause, else_clause = NULL)
 }
@@ -18,5 +18,5 @@ do_if(boolean_expression, if_clause, else_clause = NULL)
 \description{
 Clauses With Side Effects (Plotting Etc)
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+(questioning)
 }

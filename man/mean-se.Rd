@@ -5,7 +5,7 @@
 \alias{mat_m_se}
 \title{Function To Return Mean And Standard Error
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 m_se(x)
 
@@ -21,5 +21,5 @@ mat_m_se(m, DIM = 2)
 \description{
 Function To Return Mean And Standard Error
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

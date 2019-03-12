@@ -4,7 +4,7 @@
 \alias{trimmed.mean}
 \title{Mean Of Data After Trimmed
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}}
+(questioning)}
 \usage{
 trimmed.mean(x, cutoff = 4)
 }
@@ -14,5 +14,5 @@ trimmed.mean(x, cutoff = 4)
 \description{
 Mean Of Data After Trimmed
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+(questioning)
 }

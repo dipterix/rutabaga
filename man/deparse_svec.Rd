@@ -4,7 +4,7 @@
 \alias{deparse_svec}
 \title{Convert Integer Vectors To String
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 deparse_svec(nums, connect = "-", concatenate = T, collapse = ",",
   max_lag = 1)
@@ -23,7 +23,7 @@ deparse_svec(nums, connect = "-", concatenate = T, collapse = ",",
 \description{
 Convert Integer Vectors To String
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }
 \examples{
 \dontrun{

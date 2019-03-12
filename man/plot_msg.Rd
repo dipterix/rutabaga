@@ -4,7 +4,7 @@
 \alias{plot_msg}
 \title{Show A Blank Plot With Messages
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}}
+(maturing)}
 \usage{
 plot_msg(main = "No Conditions Specified")
 }
@@ -14,7 +14,7 @@ plot_msg(main = "No Conditions Specified")
 \description{
 Show A Blank Plot With Messages
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+(maturing)
 }
 \examples{
 \dontrun{

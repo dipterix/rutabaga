@@ -4,7 +4,7 @@
 \alias{ruta_axis}
 \title{A Neat Way To Show Axis
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 ruta_axis(side, at, tcl = -0.3, labels = at, las = 1,
   cex.axis = rave_cex.axis, cex.lab = rave_cex.lab, mgpy = c(3, 0.6,
@@ -22,7 +22,7 @@ ruta_axis(side, at, tcl = -0.3, labels = at, las = 1,
 \description{
 A Neat Way To Show Axis
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }
 \examples{
 \dontrun{

@@ -4,7 +4,7 @@
 \alias{ebar_polygon}
 \title{Draw Symmetric Error Bars
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 ebar_polygon(x, y, sem, alpha = 100, col = "black", fill = col,
   stroke = col, border = NA, add_line = TRUE, lwd = 1, ...)
@@ -33,7 +33,7 @@ ebar_polygon(x, y, sem, alpha = 100, col = "black", fill = col,
 \description{
 Draw Symmetric Error Bars
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }
 \examples{
 \dontrun{

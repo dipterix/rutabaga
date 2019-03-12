@@ -4,7 +4,7 @@
 \alias{not_NA}
 \title{Return True If Not Na
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 not_NA(x)
 }
@@ -14,5 +14,5 @@ not_NA(x)
 \description{
 Return True If Not Na
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

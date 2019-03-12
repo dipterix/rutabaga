@@ -4,7 +4,7 @@
 \alias{round_range}
 \title{Get A Integer Interval That Contains X
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}}
+(maturing)}
 \usage{
 round_range(x)
 }
@@ -14,7 +14,7 @@ round_range(x)
 \description{
 Get A Integer Interval That Contains X
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+(maturing)
 }
 \examples{
 \dontrun{

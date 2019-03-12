@@ -17,6 +17,8 @@ debug_shiny(expr, monitor_dirs, env = parent.frame(), action = NULL,
 \item{action}{NULL, or expression to evaluate once \code{monitor_dirs} is changed}
 
 \item{action_env}{environment to evaluate \code{action}, with side effect}
+
+\item{force_eval}{force evaluation}
 }
 \description{
 Function to debug shiny script interactively (Needs RStudio)

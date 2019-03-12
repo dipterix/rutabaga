@@ -4,7 +4,7 @@
 \alias{stretch}
 \title{Useful For Plotting When You Want To Go A Bit Beyond The Data
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}}
+(experimental)}
 \usage{
 stretch(x, pct)
 }
@@ -16,5 +16,5 @@ stretch(x, pct)
 \description{
 Useful For Plotting When You Want To Go A Bit Beyond The Data
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
+(experimental)
 }

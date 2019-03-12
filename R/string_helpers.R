@@ -2,7 +2,7 @@
 
 #' @title Parse Text Into Numeric Vectors
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param text string with chunks, e.g. \code{"1-10, 14, 16-20, 18-30"} has 4 chunks
 #' @param sep default is ",", character used to separate chunks
@@ -61,7 +61,7 @@ parse_svec <- function(text, sep = ',', connect = '-:|', sort = F, unique = T){
 
 #' @title Convert Integer Vectors To String
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param nums integer vector
 #' @param connect character used to connect consecutive numbers
@@ -113,6 +113,7 @@ deparse_svec <- function(nums, connect = '-', concatenate = T, collapse = ',', m
 #' @param labels pass to base::cat
 #' @param append pass to base::cat
 #' @param pal a named list defining colors see details
+#' @param end character to append to the string
 #' @details
 #' There are five levels by default: DEBUG, INFO, WARNING, ERROR, or FATAL.
 #' Default colors to these levels are: DEBUG (grey60), INFO (#1d9f34), WARNING

@@ -4,7 +4,7 @@
 \alias{collapse}
 \title{Collapse Sensors And Calculate Summations/Mean
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 collapse(x, keep, average = FALSE)
 }
@@ -18,7 +18,7 @@ collapse(x, keep, average = FALSE)
 \description{
 Collapse Sensors And Calculate Summations/Mean
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }
 \examples{
 \dontrun{

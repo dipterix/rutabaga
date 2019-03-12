@@ -2,11 +2,14 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{is_within}
 \alias{is_within}
+\alias{\%within\%}
 \title{Check if a is within the range of b
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 is_within(a, b)
+
+a \%within\% b
 }
 \arguments{
 \item{a}{element to check (numeric)}
@@ -16,5 +19,5 @@ is_within(a, b)
 \description{
 Check if a is within the range of b
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

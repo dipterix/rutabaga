@@ -4,7 +4,7 @@
 \alias{scale_01}
 \title{0-1 Scale The Data So We Can Manage The Plot Ranges Easily
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 scale_01(x)
 }
@@ -14,5 +14,5 @@ scale_01(x)
 \description{
 0-1 Scale The Data So We Can Manage The Plot Ranges Easily
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

@@ -26,6 +26,8 @@ cat2(..., level = "DEBUG", print_level = FALSE, file = "",
 
 \item{append}{pass to base::cat}
 
+\item{end}{character to append to the string}
+
 \item{pal}{a named list defining colors see details}
 }
 \description{

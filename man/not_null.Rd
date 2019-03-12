@@ -4,7 +4,7 @@
 \alias{not_null}
 \title{Return True If Not Null
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 not_null(x)
 }
@@ -14,5 +14,5 @@ not_null(x)
 \description{
 Return True If Not Null
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }
