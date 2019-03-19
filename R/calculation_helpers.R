@@ -100,14 +100,15 @@ do_if <- function(boolean_expression, if_clause, else_clause=NULL) {
 }
 
 #' @title Easy Way To Get +/- From A Long Vector
-#' @rdname plus_minus
-#'
 #' @param x data
 #' @param d plus minus value(s)
 #' @export
 pm <- function(x,d)c(x-d,x+d)
 
-#' @rdname plus_minus
+#' @title Easy Way To Get +/- From A Long Vector
+#' @param x data
+#' @param d plus minus value(s)
+#' @export
 plus_minus <- function(x,d)c(x-d,x+d)
 
 
