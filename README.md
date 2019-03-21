@@ -1,5 +1,7 @@
 # R Util Tools for Analysis and Visualizations
 
+Current version (0.1.7)
+
 `rutabaga` provides simplest tools for you to easily speed up some calculations 
 and manage plots. 
 
