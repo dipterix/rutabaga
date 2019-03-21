@@ -4,7 +4,7 @@
 \alias{get_data_range}
 \title{Get Data Range From A Collection Of Named Lists
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}}
+(questioning)}
 \usage{
 get_data_range(ll, name = "range", ...)
 }
@@ -18,5 +18,5 @@ get_data_range(ll, name = "range", ...)
 \description{
 Get Data Range From A Collection Of Named Lists
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+(questioning)
 }

@@ -23,7 +23,7 @@ rave_cex.lab <- 1.4
 
 #' @title Create A Blank Plot With Given X And Y Range
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param xlim numeric vector
 #' @param ylim numeric vector
@@ -72,7 +72,7 @@ plot_clean <- function(
 
 #' @title Show A Blank Plot With Messages
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+#' (maturing)
 #'
 #' @param main the title/msg to show
 #'
@@ -103,7 +103,7 @@ plot_msg <- function(main = 'No Conditions Specified') {
 
 #' @title A Neat Way To Show Axis
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param side 1 to 4: bottom, left, up, right. See \code{\link{axis}}
 #' @param at,tcl,labels,las,mgpy,mgpx,... passed to \code{\link{axis}}
@@ -114,15 +114,15 @@ plot_msg <- function(main = 'No Conditions Specified') {
 #' \dontrun{
 #' # create a blank plot with x from 0 to 10 and y from 1 to 5
 #' plot_clean(0:10, 1:5, xlab = 'X')
-#' rave_axis(side = 1, at = 1:8)
+#' ruta_axis(side = 1, at = 1:8)
 #' }
 #' @export
-rave_axis <- function(
+ruta_axis <- function(
   side, at, tcl=-0.3, labels=at, las=1, cex.axis=rave_cex.axis,
   cex.lab=rave_cex.lab, mgpy=c(3, .6, 0), mgpx=c(3, .75, 0), ...) {
   if(length(side) > 1) {
     return (invisible(sapply(
-      side, rave_axis, at=at, tcl=tcl, labels=labels,
+      side, ruta_axis, at=at, tcl=tcl, labels=labels,
       cex.axis=cex.axis, las=las, cex.lab=cex.lab, ...)
     ))
   }
@@ -147,7 +147,7 @@ rave_axis <- function(
 #' @examples
 #' \dontrun{
 #' plot_clean(0:10, -1:5, xlab = 'X')
-#' rave_axis(side = 2, at = -1:8)
+#' ruta_axis(side = 2, at = -1:8)
 #' ebars(x = c(2, 4), y = c(0, 3), sem = c(1, 0.5), col = c(2, 3))
 #' }
 #' @export
@@ -191,14 +191,19 @@ ebars.y <- function(x, y, sem, length = 0.05, up = T, down = T, code = 2, ...) {
   }
 }
 
-
+#' Polygon plot
+#' @param x,y x and y
+#' @param col color
+#' @param alpha 0-255 transparency
+#' @param ... passed to polygon
+#' @export
 do_poly <- function(x, y, col, alpha=50, ...) {
   polygon(c(x,rev(x)), rep(y, each=2), col=getAlphaRGB(col, alpha), border=NA, ...)
 }
 
 #' @title Draw Symmetric Error Bars
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param x,y plot data
 #' @param sem error bar half width
@@ -215,7 +220,7 @@ do_poly <- function(x, y, col, alpha=50, ...) {
 #' @examples
 #' \dontrun{
 #' plot_clean(0:10, -1:5, xlab = 'X')
-#' rave_axis(side = 2, at = -1:8)
+#' ruta_axis(side = 2, at = -1:8)
 #' ebar_polygon(1:10, (1:10)/2, rnorm(10))
 #' }
 #' @export
@@ -259,7 +264,7 @@ getAlphaRGB <- function(colname, alpha) {
 
 #' @title Get Elements/Slot/Attributes From List
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param ll list of elements
 #' @param name attribute/name/slot to extract
@@ -302,7 +307,7 @@ abs_cdiff <- function(m) {
 
 #' @title Get A Integer Interval That Contains X
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+#' (maturing)
 #'
 #' @param x vector/matrix, numeric
 #'
@@ -324,7 +329,7 @@ round_range <- function(x) {
 
 #' @title Get Data Range From A Collection Of Named Lists
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+#' (questioning)
 #'
 #' @param ll list
 #' @param name element name
@@ -340,7 +345,7 @@ get_data_range <- function(ll, name='range', ...) {
 
 #' @title Barplot Function That Uses All The Rave Sizes And Colors
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param height,cex.axis,cex.lab,cex.names,... passed to \link{barplot} but the default values are changed
 #'
@@ -356,7 +361,7 @@ rave_barplot <- function(height, cex.axis=rave_cex.axis, cex.lab=rave_cex.lab, c
 
 #' @title Return Jittered X
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
+#' (experimental)
 #'
 #' @param x data
 #' @param len length of x
@@ -381,7 +386,7 @@ jitr <- function(x, len=length(x), r) {
 
 #' @title Same As Points, But Can Be Jittered
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+#' (maturing)
 #'
 #' @param x,y plot data
 #' @param jitr_x jitter shift size for x
@@ -405,7 +410,7 @@ add_points <- function(x, y, jitr_x=0, pch=19, ...) {
 
 #' @title Ensure Data Are Within Some Bounds
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param x data
 #' @param lim clip range, length of 1 or more. If length(lim) is 1, then the clip is symmetric
@@ -422,7 +427,7 @@ clip_x <- function(x, lim) {
 
 #' @title Useful For Plotting When You Want To Go A Bit Beyond The Data
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("experimental")}
+#' (experimental)
 #'
 #' @param x data
 #' @param pct stretch percentage
@@ -431,8 +436,5 @@ stretch <- function(x, pct) {
   d <- pct * diff(range(x))
   c(min(x)-d, max(x)+d)
 }
-
-
-
 
 

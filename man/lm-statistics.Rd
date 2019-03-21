@@ -17,5 +17,5 @@ format_f(lm.mod, test_name = "All")
 \item{test_name}{name}
 }
 \description{
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+(questioning)
 }

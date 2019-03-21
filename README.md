@@ -1,5 +1,7 @@
 # R Util Tools for Analysis and Visualizations
 
+Current version (0.1.7)
+
 `rutabaga` provides simplest tools for you to easily speed up some calculations 
 and manage plots. 
 
@@ -56,8 +58,8 @@ plot_clean(1:8, 1:120, main = 'Response v.s. Time', xlab = 'Time', ylab = 'Respo
 
 
 # Add axis for x and y at specific ticks
-rave_axis(side = 1, at = c(1, 3, 5, 8))
-rave_axis(side = 2, at = c(10, 20, 30, 50, 80, 100))
+ruta_axis(side = 1, at = c(1, 3, 5, 8))
+ruta_axis(side = 2, at = c(10, 20, 30, 50, 80, 100))
 
 
 # Plot data

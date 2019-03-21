@@ -4,7 +4,7 @@
 \alias{add_points}
 \title{Same As Points, But Can Be Jittered
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}}
+(maturing)}
 \usage{
 add_points(x, y, jitr_x = 0, pch = 19, ...)
 }
@@ -20,5 +20,5 @@ add_points(x, y, jitr_x = 0, pch = 19, ...)
 \description{
 Same As Points, But Can Be Jittered
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("maturing")}
+(maturing)
 }

@@ -10,5 +10,5 @@ get_t(...)
 \item{...}{passed to \link{t.test}}
 }
 \description{
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+(questioning)
 }

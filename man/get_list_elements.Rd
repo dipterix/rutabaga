@@ -4,7 +4,7 @@
 \alias{get_list_elements}
 \title{Get Elements/Slot/Attributes From List
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 get_list_elements(ll, name, drop_nulls = TRUE, is_attr = FALSE,
   use_sapply = TRUE, ...)
@@ -25,5 +25,5 @@ get_list_elements(ll, name, drop_nulls = TRUE, is_attr = FALSE,
 \description{
 Get Elements/Slot/Attributes From List
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

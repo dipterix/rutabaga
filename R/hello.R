@@ -2,7 +2,7 @@
 
 #' @title Collapse Sensors And Calculate Summations/Mean
 #'
-#' \Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+#' (stable)
 #'
 #' @param x A multi-mode tensor (array)
 #' @param keep Which dimension to keep

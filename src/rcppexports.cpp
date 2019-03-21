@@ -44,15 +44,3 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-
-static const R_CallMethodDef CallEntries[] = {
-    {"_rutabaga_arraypermer", (DL_FUNC) &_rutabaga_arraypermer, 3},
-    {"_rutabaga_collapser", (DL_FUNC) &_rutabaga_collapser, 3},
-    {"_rutabaga_vec_sum", (DL_FUNC) &_rutabaga_vec_sum, 3},
-    {NULL, NULL, 0}
-};
-
-RcppExport void R_init_rutabaga(DllInfo *dll) {
-    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
-    R_useDynamicSymbols(dll, FALSE);
-}

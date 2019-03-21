@@ -4,7 +4,7 @@
 \alias{trimmed.mse}
 \title{Sd Of Data After Trimmed
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}}
+(questioning)}
 \usage{
 trimmed.mse(x, cutoff = 4)
 }
@@ -14,5 +14,5 @@ trimmed.mse(x, cutoff = 4)
 \description{
 Sd Of Data After Trimmed
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("questioning")}
+(questioning)
 }

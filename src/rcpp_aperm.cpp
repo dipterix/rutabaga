@@ -28,10 +28,11 @@ struct ArrayPerm : public Worker
      * for i in seq(begin, end) do:
      *    y[i] = x[a,b,c,d] in which y[i] = y[a,b,d,c] // perm = c(1,2,4,3)
      */
-    int output_ind[new_dim.length()];
-    int input_ind[new_dim.length()];
+    int *output_ind = new int[new_dim.length()];
+    int *input_ind = new int[new_dim.length()];
 
-    int i,j,k,l,a;    // indices
+    unsigned long int i,j,k,l;
+    int a;    // indices
 
     for(i = begin; i < end; i++){
 
@@ -62,6 +63,9 @@ struct ArrayPerm : public Worker
       */
       y[i] = x[l];
     }
+
+    delete [] input_ind;
+    delete [] output_ind;
 
   }
 

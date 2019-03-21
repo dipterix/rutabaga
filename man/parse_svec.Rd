@@ -4,7 +4,7 @@
 \alias{parse_svec}
 \title{Parse Text Into Numeric Vectors
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 parse_svec(text, sep = ",", connect = "-:|", sort = F, unique = T)
 }
@@ -22,7 +22,7 @@ parse_svec(text, sep = ",", connect = "-:|", sort = F, unique = T)
 \description{
 Parse Text Into Numeric Vectors
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }
 \examples{
 \dontrun{

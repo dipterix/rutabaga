@@ -4,7 +4,7 @@
 \alias{m_sd}
 \title{Function To Return Mean And Standard Deviation (Na Ignored)
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 m_sd(x, na.rm = FALSE)
 }
@@ -16,5 +16,5 @@ m_sd(x, na.rm = FALSE)
 \description{
 Function To Return Mean And Standard Deviation (Na Ignored)
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

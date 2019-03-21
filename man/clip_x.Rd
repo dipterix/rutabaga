@@ -4,7 +4,7 @@
 \alias{clip_x}
 \title{Ensure Data Are Within Some Bounds
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 clip_x(x, lim)
 }
@@ -16,5 +16,5 @@ clip_x(x, lim)
 \description{
 Ensure Data Are Within Some Bounds
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

@@ -4,7 +4,7 @@
 \alias{rave_barplot}
 \title{Barplot Function That Uses All The Rave Sizes And Colors
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}}
+(stable)}
 \usage{
 rave_barplot(height, cex.axis = rave_cex.axis, cex.lab = rave_cex.lab,
   cex.names = rave_cex.lab, ...)
@@ -15,5 +15,5 @@ rave_barplot(height, cex.axis = rave_cex.axis, cex.lab = rave_cex.lab,
 \description{
 Barplot Function That Uses All The Rave Sizes And Colors
 
-\Sexpr[results=rd, stage=render]{rlang:::lifecycle("stable")}
+(stable)
 }

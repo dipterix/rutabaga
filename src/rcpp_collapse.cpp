@@ -28,10 +28,12 @@ struct Collapse : public Worker
 
   void operator()(std::size_t begin, std::size_t end) {
     int input_size = dims.size();
-    int input_ind[input_size];
+    int *input_ind = new int[input_size];
+    // int input_ind[input_size];
     int rem_dim = total_dim / out_dim;
 
-    int i,j,k,l,p,a,b,c;    // indices
+    unsigned long int i, j, k;
+    int l,p,a,b,c;    // indices
     double re;
 
     for(i = begin; i < end; i++){
@@ -78,6 +80,7 @@ struct Collapse : public Worker
       // std::printf("%.2f", re);
     }
 
+    delete [] input_ind;
   }
 
 };
