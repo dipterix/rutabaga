@@ -1,7 +1,7 @@
 Package: rutabaga
 Type: Package
 Title: Simple R Tools for Analysis and Visualizations
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: c(
     person(given = "Zhengjia", family = "Wang", email = "zhengjia.wang@rice.edu", role = c("aut", "cre", "cph")),
     person(given = "John", family = "Magnotti", email = "john.magnotti@bcm.edu", role = c("aut", "cph"))
