@@ -21,7 +21,8 @@ RutaDecor <- R6::R6Class(
     check_expr = TRUE,
     error_message = '',
     result = NULL,
-    initialize = function(expr, envir = parent.frame(), quoted = FALSE){
+    initialize = function(expr, envir = parent.frame(n=2), quoted = FALSE){
+      g = globalenv(); g$aaa = envir
       if(!quoted){
         expr = eval(substitute(substitute(expr)), envir)
       }
