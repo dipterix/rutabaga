@@ -1,3 +1,5 @@
+
+
 #' @export
 root_decorator <- function(message = ''){
   decor = RutaDecor$new({}, message = message)
@@ -15,7 +17,7 @@ new_canvas <- function(
   # operator `!!` will evaluate the value NOW
 
   # render function
-  d = RutaDecor$new({
+  d = RutaDecor$new(~{
     plot(x, y, type = !!type, axes = F, ylab = !!ylab, xlab = !!xlab,
          xlim = xlim, ylim = ylim,
          cex.main=!!cex.main, cex.axis=!!cex.axis, cex.lab= !!cex.lab)
@@ -24,7 +26,7 @@ new_canvas <- function(
   # debug:
   # print(d$render_expr)
 
-  d$set_check({
+  d$set_check(~{
     .set_data(xlim = !!xlim)
     if(is.null(xlim)){
       .set_data(xlim = range(x))
@@ -67,7 +69,7 @@ add_axis <- function(
   if(side %% 2) mgp <- mgpx
   side_x = side %in% c(1,3)
 
-  d = RutaDecor$new({
+  d = RutaDecor$new(~{
     at = !!at
     if(is.null(at)){
       if(side_x)  at = pretty(x)  else  at = pretty(y)
@@ -94,7 +96,8 @@ add_axis <- function(
 }
 
 
-# Decorator, auto detect xlim, ylim
+# # Decorator, auto detect xlim, ylim
+# require(rutabaga)
 # require(magrittr)
 # root = root_decorator()
 # root %>%
@@ -102,7 +105,6 @@ add_axis <- function(
 #   add_axis(side = 1, at = c(1, 3, 5, 8)) %>%
 #   add_axis(side = 2, at = function(y){ quantile(y, c(0,0.25,0.75,1) )}) %>%
 #   add_axis(side = 3:4)
-#   d
 #
 # root
 #

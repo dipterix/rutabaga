@@ -21,24 +21,30 @@ RutaDecor <- R6::R6Class(
     check_expr = TRUE,
     message = '',
     result = NULL,
-    initialize = function(expr, envir = parent.frame(n=2), quoted = FALSE, message = '<noname>'){
+    initialize = function(expr, envir = parent.frame(n=2), quoted = TRUE, message = '<noname>'){
       if(!quoted){
-        expr = rlang::enquo(expr)
-      }
-      if(rlang::is_quosure(expr)){
-        self$render_expr = expr
+        self$render_expr = rlang::enquo(expr)
       }else{
-        self$render_expr = rlang::as_quosure(quote({a+1}), envir = envir)
+        if(has_class(expr, 'formula')){
+          expr = expr[[2]]
+        }
+        self$render_expr = do.call(rlang::quo, list(expr = expr), envir = envir)
       }
 
       private$children = list()
       self$message = message
     },
 
-    set_check = function(expr){
-      envir = parent.frame()
-      expr = eval(substitute(substitute(expr)), envir)
-      self$check_expr = do.call(rlang::quo, list(expr = expr), envir = envir)
+    set_check = function(expr, envir = parent.frame(), quoted = TRUE){
+      if(!quoted){
+        self$check_expr = rlang::enquo(expr)
+      }else{
+        if(has_class(expr, 'formula')){
+          expr = expr[[2]]
+        }
+        self$check_expr = do.call(rlang::quo, list(expr = expr), envir = envir)
+      }
+
     },
     set_child_decor = function(d, at = 0, replace = TRUE){
       assert_that(has_class(d, 'RutaDecor'), msg = 'd must be a RutaDecor instance')
