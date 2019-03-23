@@ -35,11 +35,14 @@ RutaPlot <- R6::R6Class(
       }
 
       private$env$.set_data = self$set_data
-
     },
 
-    set_data = function(...){
+    set_data = function(..., key, val){
       args = list(...)
+      if(!missing(key)){
+        args[[key]] = val
+      }
+
       if(length(args)){
         list2env(args, envir = private$env)
       }

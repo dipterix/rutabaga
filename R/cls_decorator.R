@@ -19,29 +19,26 @@ RutaDecor <- R6::R6Class(
   public = list(
     render_expr = NULL,
     check_expr = TRUE,
-    error_message = '',
+    message = '',
     result = NULL,
-    initialize = function(expr, envir = parent.frame(n=2), quoted = FALSE){
-      g = globalenv(); g$aaa = envir
+    initialize = function(expr, envir = parent.frame(n=2), quoted = FALSE, message = '<noname>'){
       if(!quoted){
-        expr = eval(substitute(substitute(expr)), envir)
+        expr = rlang::enquo(expr)
       }
       if(rlang::is_quosure(expr)){
         self$render_expr = expr
       }else{
-        self$render_expr = do.call(rlang::quo, list(expr = expr), envir = envir)
+        self$render_expr = rlang::as_quosure(quote({a+1}), envir = envir)
       }
 
       private$children = list()
+      self$message = message
     },
 
-    set_check = function(expr, msg = NULL){
+    set_check = function(expr){
       envir = parent.frame()
       expr = eval(substitute(substitute(expr)), envir)
       self$check_expr = do.call(rlang::quo, list(expr = expr), envir = envir)
-      if(!is.null(msg)){
-        self$error_message = msg
-      }
     },
     set_child_decor = function(d, at = 0, replace = TRUE){
       assert_that(has_class(d, 'RutaDecor'), msg = 'd must be a RutaDecor instance')
@@ -88,7 +85,17 @@ RutaDecor <- R6::R6Class(
       }
     },
 
-    print = function(...){
+    print = function(recursive = TRUE, ..., .is_top = TRUE, prefix = '- '){
+      if(.is_top){
+        cat2('================ Decorator List ================', level = 'INFO')
+      }
+      cat2(prefix, self$message, sep = '', level = 'INFO')
+      if(recursive){
+        for(d in private$children){
+          d$print(recursive = TRUE, ..., .is_top = FALSE, prefix = paste0(prefix, '  '))
+        }
+      }
+
       return(invisible(self))
     }
   )
