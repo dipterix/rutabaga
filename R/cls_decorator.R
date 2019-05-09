@@ -75,10 +75,10 @@ RutaDecor <- R6::R6Class(
         self$.param_env = env
       }
 
+      private$unit_check(g, env = self$.param_env)
       for(d in private$children){
         d$check(g, env = self$.param_env, .is_top = FALSE)
       }
-      private$unit_check(g, env = self$.param_env)
     },
 
     render = function(g, .is_top = TRUE){

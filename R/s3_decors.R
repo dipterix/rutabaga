@@ -29,12 +29,12 @@ new_canvas <- function(
   d$set_check(~{
     .set_data(xlim = !!xlim)
     if(is.null(xlim)){
-      .set_data(xlim = range(x))
+      .set_data(xlim = range(pretty(x)))
     }
 
     .set_data(ylim = !!ylim)
     if(is.null(ylim)){
-      .set_data(ylim = range(y))
+      .set_data(ylim = range(pretty(y)))
     }
 
   })
@@ -96,19 +96,3 @@ add_axis <- function(
 }
 
 
-# # Decorator, auto detect xlim, ylim
-# require(rutabaga)
-# require(magrittr)
-# root = root_decorator()
-# root %>%
-#   new_canvas(type = 'l') %>%
-#   add_axis(side = 1, at = c(1, 3, 5, 8)) %>%
-#   add_axis(side = 2, at = function(y){ quantile(y, c(0,0.25,0.75,1) )}) %>%
-#   add_axis(side = 3:4)
-#
-# root
-#
-# # Plot data
-# g = RutaPlot$new(x=1:10, y = rnorm(10));
-# g$show(root)
-# g
