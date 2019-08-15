@@ -55,7 +55,74 @@ trimmed.mse <- function(x, cutoff=4) {
 }
 
 
-#' @title Function To Return Mean And Standard Deviation (Na Ignored)
+#' @title Make rbind magrittr compatible
+#' (stable)
+#' @param ll the list to bind, each element will be a row
+#' @export
+rbind_list <- function(ll) do.call(rbind, ll)
+
+#' @title Make cbind magrittr compatible
+#' (stable)
+#' @param ll the list to bind, each element will be a column
+#' @export
+cbind_list <- function(ll) do.call(cbind, ll)
+
+#' @description output of a function, but return its input to allow chaining
+#' @export
+print_summary = function(x, FUN=summary, ...) {
+  x %>% FUN(...) %>% print
+  invisible(x)
+}
+
+#' @description  Execute the function (usually for its side effect) then return (invisibly) the input to the function
+#' @export
+F_NOOP <- function(x, FUN, ...) {
+  FUN(x, ...)
+  invisible(x)
+}
+
+#' @description  Evaluate an expression, but then return the input
+#' @export
+NOOP <- function(x, expr=NULL) {
+  eval(expr); invisible(x)
+}
+
+#'@description row applier with an additional index variable, ii
+#'@export
+row_apply_ii <- function(mat, FUN_, ...) {
+  ii <- 0
+  apply(mat, 1, function(...) {
+    ii <<- ii + 1
+    FUN_(..., ii=ii)
+  })
+}
+
+#'@description sapply with an additional index variable, ii
+#'@export
+sapply_ii <- function(X, FUN_, simplify=TRUE, USE.NAMES=TRUE, ...) {
+  ii <- 0
+  sapply(X, function(...) {
+    ii <<- ii + 1
+    FUN_(..., ii=ii)
+  }, simplify = simplify, USE.NAMES = USE.NAMES)
+}
+
+
+#' @title Make aggregate magrittr compatible
+#' (stable)
+#' @param data aggregateable data
+#' @param formula a formula, such as y ~ x or cbind(y1, y2) ~ x1 + x2, where the y variables are numeric data to be split into groups according to the grouping x variables (usually factors).
+#' @param FUN a function to compute the summary statistics which can be applied to all data subsets.
+#' @param ... further arguments to aggregate
+#' @seealso aggregate
+#' @export
+#'
+do_aggregate <- function(data, formula, FUN, ...) {
+  aggregate(formula, data=data, FUN, ...)
+}
+
+
+#' @title Function To Return Mean And Standard Deviation (Na Ignored by default)
 #'
 #' (stable)
 #'
@@ -65,7 +132,7 @@ trimmed.mse <- function(x, cutoff=4) {
 #' @param na.rm remove NAs?
 #'
 #' @export
-m_sd <- function(x, na.rm=FALSE) c('mean'=mean(x,na.rm=na.rm), 'sd'=sd(x,na.rm=na.rm))
+m_sd <- function(x, na.rm=TRUE) c('mean'=mean(x,na.rm=na.rm), 'sd'=sd(x,na.rm=na.rm))
 
 #' @title Return True If Not Null
 #'
@@ -100,6 +167,9 @@ do_if <- function(boolean_expression, if_clause, else_clause=NULL) {
 }
 
 #' @title Easy Way To Get +/- From A Long Vector
+#'
+#' (deprecated)
+#'
 #' @param x data
 #' @param d plus minus value(s)
 #' @export
@@ -109,9 +179,19 @@ pm <- function(x,d)c(x-d,x+d)
 #' @param x data
 #' @param d plus minus value(s)
 #' @export
-plus_minus <- function(x,d)c(x-d,x+d)
+plus_minus <- function(x,d) {
+  if(missing(d) & is.matrix(x)) {
+    d <- x[,2]
+    x <- x[,1]
+  }
+  c(x-d,x+d)
+}
 
-
+#' @title Operator form for plus minus
+#' @param x data
+#' @param d plus minus value(s)
+#' @export
+`%+-%` <- plus_minus
 
 
 # needed to simplify long expressions
@@ -139,8 +219,6 @@ scale_01 <- function(x) {
 #' @param x data
 #' @export
 pscl <- function(x) x /sum(x, na.rm=TRUE)
-
-
 
 
 #' @title Check if a is within the range of b

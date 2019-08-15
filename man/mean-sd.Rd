@@ -2,11 +2,11 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{m_sd}
 \alias{m_sd}
-\title{Function To Return Mean And Standard Deviation (Na Ignored)
+\title{Function To Return Mean And Standard Deviation (Na Ignored by default)
 
 (stable)}
 \usage{
-m_sd(x, na.rm = FALSE)
+m_sd(x, na.rm = TRUE)
 }
 \arguments{
 \item{x}{data}
@@ -14,7 +14,7 @@ m_sd(x, na.rm = FALSE)
 \item{na.rm}{remove NAs?}
 }
 \description{
-Function To Return Mean And Standard Deviation (Na Ignored)
+Function To Return Mean And Standard Deviation (Na Ignored by default)
 
 (stable)
 }

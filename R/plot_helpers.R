@@ -438,3 +438,55 @@ stretch <- function(x, pct) {
 }
 
 
+#' @title Function for repeatedly writing plots to PDFs
+#' @param PLOT a function that produces a plot
+#' @param w the requested width of the PDF
+#' @param h the requested height of the PDF
+#' @param mar the margins of the PDF, set by a call to par(mar=mar). Defaults to c(1,1,1,1)
+#' @return A function that takens optional arguments to the PLOT function and fname, the name of the PDF. One-off changes to w, h, and mar, are specified with width, height, and margin, respectively
+#' @export
+to_pdf = function(PLOT, w, h, mar=rep(1,4)) {
+  return(function(..., fname, width = w, height = h, margin=mar) {
+    on.exit(dev.off())
+
+    fname <- fix_pdf_name(fname)
+    pdf(fname, width = width, height = height, useDingbats=FALSE)
+    par(mar=margin)
+    PLOT(...)
+  })
+}
+
+#' @title Ensure that the file names ends in ".pdf"
+#' @param fname potential file name
+#' @export
+fix_pdf_name <- function(fname) {
+  if(!grepl("\\.pdf$", fname)) {
+    fname = paste0(fname, ".pdf")
+  }
+  return(fname)
+}
+
+#' @title pdf wrapper that evaluates an arbitrary expression.
+#' @param w the requested width of the PDF
+#' @param h the requested height of the PDF
+#' @param expr the expression to evaluate to produce the plot
+#' @param bg set the background color of the PDF, defaults to 'white'
+#' @param TEST if FALSE (the default) print to PDF, otherwise print to the current graphics device
+#' @return the output of the resulting expression (the plot is likely produced by side effect but may additionally 'return' a value)
+#'
+#' @export
+as_pdf = function(fname, w, h, expr, TEST=FALSE, bg='white') {
+  if(! TEST) {
+    on.exit(dev.off())
+
+    fname <- fix_pdf_name(fname)
+    pdf(fname, width=w, height=h, useDingbats=FALSE, bg=bg)
+    res = eval(expr)
+  } else {
+    res = eval(expr)
+  }
+  return (invisible(res))
+}
+
+
+
