@@ -227,6 +227,12 @@ do_poly <- function(x, y, col, alpha=50, ...) {
 ebar_polygon <- function(x, y, sem, alpha=100, col='black', fill=col,
                         stroke=col, border = NA, add_line=TRUE, lwd=1, ...) {
   is_finite = is.finite(y) & is.finite(sem)
+
+  # if all the SEMs are non finite, then we should still just draw a line, be helpful!
+  if(all(!is.finite(sem))) {
+    is_finite <- is.finite(y)
+    sem <- 0*y
+  }
   x = x[is_finite]
   y = y[is_finite]
   sem = sem[is_finite]
