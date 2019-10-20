@@ -22,6 +22,8 @@ Imports:
     grDevices,
     graphics,
     methods,
+    future,
+    magrittr,
     Rcpp (>= 0.12.13),
     RcppParallel,
     crayon (>= 1.3.4),

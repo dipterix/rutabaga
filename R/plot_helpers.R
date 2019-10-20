@@ -473,6 +473,7 @@ fix_pdf_name <- function(fname) {
 }
 
 #' @title pdf wrapper that evaluates an arbitrary expression.
+#' @param fname file path
 #' @param w the requested width of the PDF
 #' @param h the requested height of the PDF
 #' @param expr the expression to evaluate to produce the plot
@@ -481,7 +482,7 @@ fix_pdf_name <- function(fname) {
 #' @return the output of the resulting expression (the plot is likely produced by side effect but may additionally 'return' a value)
 #'
 #' @export
-as_pdf = function(fname, w, h, expr, TEST=FALSE, bg='white') {
+as_pdf <- function(fname, w, h, expr, TEST=FALSE, bg='white') {
   if(! TEST) {
     on.exit(dev.off())
 

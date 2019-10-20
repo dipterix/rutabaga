@@ -7,6 +7,8 @@
 as_pdf(fname, w, h, expr, TEST = FALSE, bg = "white")
 }
 \arguments{
+\item{fname}{file path}
+
 \item{w}{the requested width of the PDF}
 
 \item{h}{the requested height of the PDF}

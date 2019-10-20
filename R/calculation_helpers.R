@@ -67,13 +67,21 @@ rbind_list <- function(ll) do.call(rbind, ll)
 #' @export
 cbind_list <- function(ll) do.call(cbind, ll)
 
+#' Print summary and return original input
+#' @param x object to print summary
+#' @param FUN function to print on
+#' @param ... additional parameters passing to \code{FUN}
 #' @description output of a function, but return its input to allow chaining
 #' @export
-print_summary = function(x, FUN=summary, ...) {
+print_summary <- function(x, FUN=summary, ...) {
   x %>% FUN(...) %>% print
   invisible(x)
 }
 
+#' Apply function to input but returns input itself
+#' @param x input
+#' @param FUN function to apply on \code{x}
+#' @param ... additional parameters passing to \code{FUN}
 #' @description  Execute the function (usually for its side effect) then return (invisibly) the input to the function
 #' @export
 F_NOOP <- function(x, FUN, ...) {
@@ -81,14 +89,21 @@ F_NOOP <- function(x, FUN, ...) {
   invisible(x)
 }
 
+#' Apply expression but returns something else
+#' @param x object to return
+#' @param expr expression to run
 #' @description  Evaluate an expression, but then return the input
 #' @export
 NOOP <- function(x, expr=NULL) {
   eval(expr); invisible(x)
 }
 
-#'@description row applier with an additional index variable, ii
-#'@export
+#' Apply function along the first dimension
+#' @param mat matrix or array
+#' @param FUN_ function to apply to each row
+#' @param ... additional parameters passing to \code{FUN_}
+#' @description row applier with an additional index variable, ii
+#' @export
 row_apply_ii <- function(mat, FUN_, ...) {
   ii <- 0
   apply(mat, 1, function(...) {
@@ -97,8 +112,12 @@ row_apply_ii <- function(mat, FUN_, ...) {
   })
 }
 
-#'@description sapply with an additional index variable, ii
-#'@export
+#' Apply each elements with index as inputs
+#' @param X vector or list
+#' @param FUN_ function to apply on \code{X}
+#' @param simplify,USE.NAMES,... passed to \code{sapply}
+#' @description sapply with an additional index variable, ii
+#' @export
 sapply_ii <- function(X, FUN_, simplify=TRUE, USE.NAMES=TRUE, ...) {
   ii <- 0
   sapply(X, function(...) {
@@ -236,3 +255,66 @@ is_within <- function(a, b){
 #' @rdname is_within
 #' @export
 `%within%` <- is_within
+
+
+
+
+#' Apply R expressions in async settings
+#' @param .X vector or list
+#' @param .expr expression to apply
+#' @param ... passed to \code{future::future}
+#' @param .varname variable name
+#' @param envir environment evaluate expression
+#' @param .ncore number of cores to use
+#' @export
+lasync_expr <- function(.X, .expr, ..., .varname = 'x', envir = parent.frame(), .ncore = -1){
+  if( .ncore <= 0 ){
+    .ncore = future::availableCores() - 1
+  }
+  .envir = new.env(parent = envir)
+  .expr = substitute(.expr)
+  .envir$._args = list(...)
+  .envir$._futures = list()
+  ._length = length(.X)
+  ._values = list()
+  ._ii = 1
+  .envir$async = function(expr){
+    expr = substitute(expr)
+    call = as.call(c(list(
+      quote(future::future),
+      expr = expr,
+      substitute = TRUE,
+      envir = .envir
+    ), .envir$._args))
+    .envir$._futures[[length(.envir$._futures) + 1]] = eval(call)
+  }
+
+  .__check__ = function( force_all = FALSE ){
+    if( force_all ){
+      future::resolve(.envir$._futures)
+      ._values[length(._values) + seq_along(.envir$._futures)] <<- future::values(.envir$._futures)
+      .envir$._futures = NULL
+    }else{
+      if(length(.envir$._futures) >= .ncore){
+        ._values[[._ii]] <<- future::values(.envir$._futures[[1]])
+        .envir$._futures[[1]] = NULL
+        ._ii <<- ._ii + 1
+      }
+    }
+  }
+
+  lapply(.X, function(x){
+    .__check__()
+    if(any( future::resolved(.envir$._futures)) ){
+      .envir$._values
+    }
+    assign(.varname, x, envir = .envir)
+    eval(.expr, envir = .envir)
+  })
+  .__check__(TRUE)
+  .envir$._futures = NULL
+  if( length(._values) != ._length ){
+    length(._values) = ._length
+  }
+  ._values
+}
