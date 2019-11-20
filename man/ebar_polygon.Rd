@@ -6,8 +6,19 @@
 
 (stable)}
 \usage{
-ebar_polygon(x, y, sem, alpha = 100, col = "black", fill = col,
-  stroke = col, border = NA, add_line = TRUE, lwd = 1, ...)
+ebar_polygon(
+  x,
+  y,
+  sem,
+  alpha = 100,
+  col = "black",
+  fill = col,
+  stroke = col,
+  border = NA,
+  add_line = TRUE,
+  lwd = 1,
+  ...
+)
 }
 \arguments{
 \item{x, y}{plot data}

@@ -195,10 +195,11 @@ ebars.y <- function(x, y, sem, length = 0.05, up = T, down = T, code = 2, ...) {
 #' @param x,y x and y
 #' @param col color
 #' @param alpha 0-255 transparency
+#' @param border border of polygon
 #' @param ... passed to polygon
 #' @export
-do_poly <- function(x, y, col, alpha=50, ...) {
-  polygon(c(x,rev(x)), rep(y, each=2), col=getAlphaRGB(col, alpha), border=NA, ...)
+do_poly <- function(x, y, col, alpha=50, border=NA, ...) {
+  polygon(c(x,rev(x)), rep(y, each=2), col=getAlphaRGB(col, alpha), border=border, ...)
 }
 
 #' @title Draw Symmetric Error Bars

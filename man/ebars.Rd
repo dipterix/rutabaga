@@ -4,8 +4,17 @@
 \alias{ebars}
 \title{Draw Symmetric Error Bars}
 \usage{
-ebars(x, y = NULL, sem = NULL, length = 0.05, type = "n",
-  col = "black", pt.col = col, code = 2, ...)
+ebars(
+  x,
+  y = NULL,
+  sem = NULL,
+  length = 0.05,
+  type = "n",
+  col = "black",
+  pt.col = col,
+  code = 2,
+  ...
+)
 }
 \arguments{
 \item{x, y}{data to plot}

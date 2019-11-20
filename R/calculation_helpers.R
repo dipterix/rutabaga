@@ -127,19 +127,6 @@ sapply_ii <- function(X, FUN_, simplify=TRUE, USE.NAMES=TRUE, ...) {
 }
 
 
-#' @title Make aggregate magrittr compatible
-#' (stable)
-#' @param data aggregateable data
-#' @param formula a formula, such as y ~ x or cbind(y1, y2) ~ x1 + x2, where the y variables are numeric data to be split into groups according to the grouping x variables (usually factors).
-#' @param FUN a function to compute the summary statistics which can be applied to all data subsets.
-#' @param ... further arguments to aggregate
-#' @seealso aggregate
-#' @export
-#'
-do_aggregate <- function(data, formula, FUN, ...) {
-  aggregate(formula, data=data, FUN, ...)
-}
-
 
 #' @title Function To Return Mean And Standard Deviation (Na Ignored by default)
 #'
@@ -206,11 +193,6 @@ plus_minus <- function(x,d) {
   c(x-d,x+d)
 }
 
-#' @title Operator form for plus minus
-#' @param x data
-#' @param d plus minus value(s)
-#' @export
-`%+-%` <- plus_minus
 
 
 # needed to simplify long expressions

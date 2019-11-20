@@ -6,8 +6,14 @@
 
 (stable)}
 \usage{
-get_list_elements(ll, name, drop_nulls = TRUE, is_attr = FALSE,
-  use_sapply = TRUE, ...)
+get_list_elements(
+  ll,
+  name,
+  drop_nulls = TRUE,
+  is_attr = FALSE,
+  use_sapply = TRUE,
+  ...
+)
 }
 \arguments{
 \item{ll}{list of elements}

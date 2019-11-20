@@ -26,7 +26,7 @@
     }
 
     # Check if pkg has been installed
-    if(package_installed(pkg)){
+    if(system.file('', package = pkg) != ''){
       # installed, extend the definition
       register <- function(...){
         tmp_env = new.env()
