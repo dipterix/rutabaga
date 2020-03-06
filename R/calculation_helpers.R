@@ -8,7 +8,11 @@
 #'
 #' @param x data
 #' @export
-m_se <- function(x) c('mean'=mean(x), 'se'=se(x))
+m_se <- function(x) {
+  if(length(x) == 1) return(c('mean' = x, 'se'=0))
+
+  c('mean'=mean(x), 'se'=se(x))
+}
 
 #' @rdname mean-se
 #' @param m matrix data
