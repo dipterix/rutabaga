@@ -262,12 +262,12 @@ decor_ebar <- function(sem, alpha=100, col='black', fill=col,
 
 
 
-# plot_with_axis <- plot %@%
-#   decor_plot_clean(xlab = 'Time(s)', ylab = 'Value', main = 'Title') %@%
-#   decor_ruta_axis(side = 1) %@%
-#   decor_ruta_axis(side = 2) %@%
-#   # decor_points() %@%
-#   decor_ebar(sem = rnorm(10)) %@%
+# plot_with_axis <- plot %D%
+#   decor_plot_clean(xlab = 'Time(s)', ylab = 'Value', main = 'Title') %D%
+#   decor_ruta_axis(side = 1) %D%
+#   decor_ruta_axis(side = 2) %D%
+#   # decor_points() %D%
+#   decor_ebar(sem = rnorm(10)) %D%
 #   decor_formals(args = c('x', 'y', 'decor_ebar.sem'))
 # plot_with_axis
 #
