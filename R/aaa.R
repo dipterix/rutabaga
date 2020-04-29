@@ -7,6 +7,7 @@
 #' @importFrom graphics par
 #' @importFrom stats aggregate
 #' @importFrom magrittr %>%
+#' @importFrom stringr str_split
 #' @import dipsaus
 NULL
 
