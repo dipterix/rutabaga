@@ -242,3 +242,17 @@ is_within <- function(a, b){
 #' @export
 `%within%` <- is_within
 
+#' helper to do row scaling
+#' @export
+row_scale <- function(mat) apply(mat, 1, pscl)
+
+#' make it easier to say not is.na in a pipe'd context
+#' @export
+not_NA = function(x) !is.na(x)
+
+#' like which.min, but for equality
+#' useful when an expression for x or y is long
+#' @export
+which.equal = function(x,y) which(x==y)
+
+

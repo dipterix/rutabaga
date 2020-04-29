@@ -7,6 +7,8 @@
 (stable)}
 \usage{
 not_NA(x)
+
+not_NA(x)
 }
 \arguments{
 \item{x}{data}
@@ -15,4 +17,6 @@ not_NA(x)
 Return True If Not Na
 
 (stable)
+
+make it easier to say not is.na in a pipe'd context
 }
