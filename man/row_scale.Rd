@@ -6,6 +6,9 @@
 \usage{
 row_scale(mat)
 }
+\arguments{
+\item{mat}{a matrix}
+}
 \description{
 helper to do row scaling
 }

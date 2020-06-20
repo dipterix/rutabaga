@@ -7,6 +7,9 @@ useful when an expression for x or y is long}
 \usage{
 which.equal(x, y)
 }
+\arguments{
+\item{x, y}{vectors to compare}
+}
 \description{
 like which.min, but for equality
 useful when an expression for x or y is long

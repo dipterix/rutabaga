@@ -243,6 +243,7 @@ is_within <- function(a, b){
 `%within%` <- is_within
 
 #' helper to do row scaling
+#' @param mat a matrix
 #' @export
 row_scale <- function(mat) apply(mat, 1, pscl)
 
@@ -252,6 +253,7 @@ not_NA = function(x) !is.na(x)
 
 #' like which.min, but for equality
 #' useful when an expression for x or y is long
+#' @param x,y vectors to compare
 #' @export
 which.equal = function(x,y) which(x==y)
 

@@ -36,10 +36,10 @@ extract_formula2 <- function(x){
   }
 }
 
-#' @export
 decor_plot_clean <- function(
   xlab = '', ylab = '', main = '', axes = FALSE, type = 'n'
 ){
+  warning('decor_plot_clean is soft-depricated')
   # static settings
   layer_name = 'decor_plot_clean'
   settings = list(type = type, axes = axes, xlab = xlab, ylab = ylab,
@@ -90,11 +90,11 @@ decor_plot_clean <- function(
 }
 
 
-#' @export
 decor_ruta_axis <- function(
   side = 1, at, labels, las = 1, mgpy = c(3, 0.6, 0),
   mgpx = c(3, 0.75, 0), tcl = -0.3, ...
 ){
+  warning('decor_ruta_axis is soft-depricated')
   layer_name = 'decor_ruta_axis'
   missing_at <- missing(at)
   missing_label <- missing(labels)
@@ -144,8 +144,8 @@ decor_ruta_axis <- function(
 }
 
 
-#' @export
 decor_points <- function(pch = 16, type = 'p', jitter_x = 0){
+  warning('decor_points is soft-depricated')
   layer_name = 'decor_points'
   function(f){
     decor_debug('Compile ', layer_name)
@@ -175,8 +175,8 @@ decor_points <- function(pch = 16, type = 'p', jitter_x = 0){
   }
 }
 
-#' @export
 decor_formals <- function(kwargs = alist(), args = NULL, dots = TRUE){
+  warning('decor_formals is soft-depricated')
   formals <- list()
   if(length(args)){
     for(nm in args){
@@ -204,11 +204,10 @@ decor_formals <- function(kwargs = alist(), args = NULL, dots = TRUE){
   }
 }
 
-#' @export
 decor_ebar <- function(sem, alpha=100, col='black', fill=col,
                        stroke=col, border = NA, add_line=TRUE, lwd=1, ...){
   layer_name <- 'decor_ebar'
-
+  warning('decor_ebar is soft-depricated')
   force(sem)
   more_args <- list(...)
   force(more_args)

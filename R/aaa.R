@@ -8,6 +8,7 @@
 #' @importFrom stats aggregate
 #' @importFrom magrittr %>%
 #' @importFrom stringr str_split
+#' @importFrom utils tail
 #' @import dipsaus
 NULL
 
