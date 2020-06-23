@@ -4,8 +4,13 @@
 \alias{dir_signature}
 \title{Create directory signature}
 \usage{
-dir_signature(path = ".", file.info = FALSE, md5sum = TRUE,
-  recursive = TRUE, ...)
+dir_signature(
+  path = ".",
+  file.info = FALSE,
+  md5sum = TRUE,
+  recursive = TRUE,
+  ...
+)
 }
 \arguments{
 \item{path}{directory path to generate signatures}

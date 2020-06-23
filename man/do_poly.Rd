@@ -4,7 +4,7 @@
 \alias{do_poly}
 \title{Polygon plot}
 \usage{
-do_poly(x, y, col, alpha = 50, ...)
+do_poly(x, y, col, alpha = 50, border = NA, ...)
 }
 \arguments{
 \item{x, y}{x and y}
@@ -12,6 +12,8 @@ do_poly(x, y, col, alpha = 50, ...)
 \item{col}{color}
 
 \item{alpha}{0-255 transparency}
+
+\item{border}{border of polygon}
 
 \item{...}{passed to polygon}
 }

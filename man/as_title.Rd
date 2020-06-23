@@ -12,8 +12,12 @@ as_title(x, ...)
 
 \method{as_title}{formula}(x, ...)
 
-\method{as_title}{default}(x, capitalize_all = TRUE, excluded = c("is",
-  "are", "vs", "v.s.", "from", "of", "be", "for", "over"), ...)
+\method{as_title}{default}(
+  x,
+  capitalize_all = TRUE,
+  excluded = c("is", "are", "vs", "v.s.", "from", "of", "be", "for", "over"),
+  ...
+)
 
 \method{as_title}{fres}(x, ...)
 

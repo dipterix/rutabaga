@@ -8,7 +8,11 @@
 #'
 #' @param x data
 #' @export
-m_se <- function(x) c('mean'=mean(x), 'se'=se(x))
+m_se <- function(x) {
+  if(length(x) == 1) return(c('mean' = x, 'se'=0))
+
+  c('mean'=mean(x), 'se'=se(x))
+}
 
 #' @rdname mean-se
 #' @param m matrix data
@@ -127,19 +131,6 @@ sapply_ii <- function(X, FUN_, simplify=TRUE, USE.NAMES=TRUE, ...) {
 }
 
 
-#' @title Make aggregate magrittr compatible
-#' (stable)
-#' @param data aggregateable data
-#' @param formula a formula, such as y ~ x or cbind(y1, y2) ~ x1 + x2, where the y variables are numeric data to be split into groups according to the grouping x variables (usually factors).
-#' @param FUN a function to compute the summary statistics which can be applied to all data subsets.
-#' @param ... further arguments to aggregate
-#' @seealso aggregate
-#' @export
-#'
-do_aggregate <- function(data, formula, FUN, ...) {
-  aggregate(formula, data=data, FUN, ...)
-}
-
 
 #' @title Function To Return Mean And Standard Deviation (Na Ignored by default)
 #'
@@ -206,11 +197,6 @@ plus_minus <- function(x,d) {
   c(x-d,x+d)
 }
 
-#' @title Operator form for plus minus
-#' @param x data
-#' @param d plus minus value(s)
-#' @export
-`%+-%` <- plus_minus
 
 
 # needed to simplify long expressions
@@ -256,65 +242,19 @@ is_within <- function(a, b){
 #' @export
 `%within%` <- is_within
 
-
-
-
-#' Apply R expressions in async settings
-#' @param .X vector or list
-#' @param .expr expression to apply
-#' @param ... passed to \code{future::future}
-#' @param .varname variable name
-#' @param envir environment evaluate expression
-#' @param .ncore number of cores to use
+#' helper to do row scaling
+#' @param mat a matrix
 #' @export
-lasync_expr <- function(.X, .expr, ..., .varname = 'x', envir = parent.frame(), .ncore = -1){
-  if( .ncore <= 0 ){
-    .ncore = future::availableCores() - 1
-  }
-  .envir = new.env(parent = envir)
-  .expr = substitute(.expr)
-  .envir$._args = list(...)
-  .envir$._futures = list()
-  ._length = length(.X)
-  ._values = list()
-  ._ii = 1
-  .envir$async = function(expr){
-    expr = substitute(expr)
-    call = as.call(c(list(
-      quote(future::future),
-      expr = expr,
-      substitute = TRUE,
-      envir = .envir
-    ), .envir$._args))
-    .envir$._futures[[length(.envir$._futures) + 1]] = eval(call)
-  }
+row_scale <- function(mat) apply(mat, 1, pscl)
 
-  .__check__ = function( force_all = FALSE ){
-    if( force_all ){
-      future::resolve(.envir$._futures)
-      ._values[length(._values) + seq_along(.envir$._futures)] <<- future::values(.envir$._futures)
-      .envir$._futures = NULL
-    }else{
-      if(length(.envir$._futures) >= .ncore){
-        ._values[[._ii]] <<- future::values(.envir$._futures[[1]])
-        .envir$._futures[[1]] = NULL
-        ._ii <<- ._ii + 1
-      }
-    }
-  }
+#' make it easier to say not is.na in a pipe'd context
+#' @export
+not_NA = function(x) !is.na(x)
 
-  lapply(.X, function(x){
-    .__check__()
-    if(any( future::resolved(.envir$._futures)) ){
-      .envir$._values
-    }
-    assign(.varname, x, envir = .envir)
-    eval(.expr, envir = .envir)
-  })
-  .__check__(TRUE)
-  .envir$._futures = NULL
-  if( length(._values) != ._length ){
-    length(._values) = ._length
-  }
-  ._values
-}
+#' like which.min, but for equality
+#' useful when an expression for x or y is long
+#' @param x,y vectors to compare
+#' @export
+which.equal = function(x,y) which(x==y)
+
+

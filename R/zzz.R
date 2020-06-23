@@ -1,18 +1,5 @@
 # nocov start
 
-#' Check if a package is installed
-#' @param pkgs vector of package names
-#' @param all only returns ONE TRUE if all packages are installed. Default is FALSE.
-#' @export
-package_installed <- function(pkgs, all = FALSE){
-  re = sapply(pkgs, function(p){
-    system.file('', package = p) != ''
-  })
-  if(all){
-    re = all(re)
-  }
-  re
-}
 
 .onLoad <- function(libname, pkgname){
   pkg_env = asNamespace(pkgname)
@@ -39,7 +26,7 @@ package_installed <- function(pkgs, all = FALSE){
     }
 
     # Check if pkg has been installed
-    if(package_installed(pkg)){
+    if(system.file('', package = pkg) != ''){
       # installed, extend the definition
       register <- function(...){
         tmp_env = new.env()

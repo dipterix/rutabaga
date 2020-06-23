@@ -6,9 +6,19 @@
 
 (stable)}
 \usage{
-plot_clean(xlim, ylim, x = 1, y = 1, type = "n", xlab = "",
-  ylab = "", cex.main = rave_cex.main, cex.axis = rave_cex.axis,
-  cex.lab = rave_cex.lab, ...)
+plot_clean(
+  xlim,
+  ylim,
+  x = 1,
+  y = 1,
+  type = "n",
+  xlab = "",
+  ylab = "",
+  cex.main = rave_cex.main,
+  cex.axis = rave_cex.axis,
+  cex.lab = rave_cex.lab,
+  ...
+)
 }
 \arguments{
 \item{xlim}{numeric vector}
