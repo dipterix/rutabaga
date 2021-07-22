@@ -113,9 +113,6 @@ as_title <- function(x, ...) {
 }
 
 
-
-
-
 #' @rdname as_title
 #' @export
 as_title.formula <- function(x, ...){
@@ -163,4 +160,10 @@ as_title.fres <- function(x, ...) {
 as_title.tres <- function(x,...) {
   res = pretty.tres(x, ...)
   bquote(H[0] * ':' ~ mu == 0 * ';' ~ bar(x)==.(res[1]) * ',' ~ t == .(res[2]) * ',' ~ p==.(res[3]))
+}
+
+#' @rdname collapse
+#' @export
+collapse <- function(x, by=', ', ...) {
+  paste0(x, collapse=by)
 }
