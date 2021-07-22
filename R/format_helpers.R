@@ -162,8 +162,10 @@ as_title.tres <- function(x,...) {
   bquote(H[0] * ':' ~ mu == 0 * ';' ~ bar(x)==.(res[1]) * ',' ~ t == .(res[2]) * ',' ~ p==.(res[3]))
 }
 
-#' @rdname collapse
+#' @rdname str_collapse
+#' @param x the vector to collapse
+#' @param by the separating token (default is ', ')
 #' @export
-collapse <- function(x, by=', ', ...) {
+str_collapse <- function(x, by=', ', ...) {
   paste0(x, collapse=by)
 }
