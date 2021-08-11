@@ -162,10 +162,12 @@ as_title.tres <- function(x,...) {
   bquote(H[0] * ':' ~ mu == 0 * ';' ~ bar(x)==.(res[1]) * ',' ~ t == .(res[2]) * ',' ~ p==.(res[3]))
 }
 
-#' @rdname str_collapse
+#' @title Convert vector into comma-separated string
 #' @param x the vector to collapse
 #' @param by the separating token (default is ', ')
+#' @param ... further arguments for paste0
+#' @return a character vector as produced by paste0
 #' @export
 str_collapse <- function(x, by=', ', ...) {
-  paste0(x, collapse=by)
+  paste0(x, collapse=by, ...)
 }

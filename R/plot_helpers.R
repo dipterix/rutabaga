@@ -497,4 +497,134 @@ as_pdf <- function(fname, w, h, expr, TEST=FALSE, bg='white') {
 }
 
 
+call_or_function <- function(expr){
+  if(!length(expr)){ return(TRUE) }
+  tmp <- as.list(expr)
+  if(length(tmp) > 1){
+    expr <- tmp
+  } else {
+    expr <- list(expr)
+  }
+  while (length(expr) >= 2 && (expr[[1]] == "{" || expr[[1]] == "(")) {
+    expr <- expr[-1]
+    if(length(expr) == 1){
+      tmp <- as.list(expr[[1]])
+      if(length(tmp) > 1){
+        expr <- tmp
+      }
+    }
+  }
+  if( expr[[1]] == "function" ){ return(FALSE) }
+  if(length(expr) > 1){
+    return(TRUE)
+  }
+  expr <- expr[[1]]
+  if( is.symbol(expr) ){
+    return(FALSE)
+  }
+  return(TRUE)
+}
 
+
+#' @title add decoration (frames) to plots based on their layout location
+#' @export
+create_frames <- function(
+  layout, common = NULL, bottom = NULL, left = NULL, top = NULL,
+  right = NULL, env = parent.frame(), exclude = NULL) {
+
+  if(!is.matrix(layout) && length(layout) == 2){
+    layout <- matrix(seq_len(prod(layout)),
+      nrow = layout[[1]], byrow = TRUE)
+  }
+  if(length(exclude)){
+    layout[layout %in% exclude] <- NA
+  }
+
+  expr <- substitute(common)
+  if(!call_or_function(expr)){ expr <- eval(expr) }
+  common <- expr
+
+  expr <- substitute(bottom)
+  if(!call_or_function(expr)){ expr <- eval(expr) }
+  bottom <- expr
+
+  expr <- substitute(left)
+  if(!call_or_function(expr)){ expr <- eval(expr) }
+  left <- expr
+
+  expr <- substitute(top)
+  if(!call_or_function(expr)){ expr <- eval(expr) }
+  top <- expr
+
+  expr <- substitute(right)
+  if(!call_or_function(expr)){ expr <- eval(expr) }
+  right <- expr
+
+  force(env)
+
+  # is_bottom <-  is_left <-  is_top <-  is_right <- FALSE
+  suppressWarnings({
+    bottom_counts <- apply(layout, 2, max, na.rm = TRUE)
+    left_counts <- apply(layout, 1, min, na.rm = TRUE)
+    top_counts <- apply(layout, 2, min, na.rm = TRUE)
+    right_counts <- apply(layout, 1, max, na.rm = TRUE)
+  })
+
+
+  count <- 1
+
+  list(
+    cur_count = function(){ count },
+
+    #the ... is passed to functions
+    add_frame = function(skip = FALSE, force = NULL, ...){
+      eval_or_call <- function(.x, envir) {
+        if(is.function(.x)) {
+          do.call(match.fun(.x), list(...), envir =envir)
+        } else {
+          eval(.x, envir = envir)
+        }
+      }
+
+      if(skip || !count %in% layout){
+        count <<- count + 1
+        # if we've gone past the max frame, then recycle
+        if(count > max(layout)) {
+          count <<- 1
+        }
+        return(invisible())
+      }
+      eval_or_call(common, envir=env)
+
+      # check if count (current figure is the bottom)
+      is_bottom <- count %in% bottom_counts || 1 %in% force
+      if(is_bottom){
+        eval_or_call(bottom, envir = env)
+      }
+
+      is_left <- count %in% left_counts || 2 %in% force
+      if(is_left){
+        eval_or_call(left, envir = env)
+      }
+
+      is_top <- count %in% top_counts || 3 %in% force
+      if(is_top){
+        eval_or_call(top, envir = env)
+      }
+
+      is_right <- count %in% right_counts || 4 %in% force
+      if(is_right){
+        eval_or_call(right, envir = env)
+      }
+
+      count <<- count + 1
+
+      # if we've gone past the max frame, then recycle
+      if(count > max(layout)) {
+        count <<- 1
+      }
+
+      invisible(c(is_bottom, is_left, is_top, is_right))
+    }
+  )
+}
