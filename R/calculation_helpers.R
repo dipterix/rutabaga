@@ -20,7 +20,13 @@ m_se <- function(x) {
 #' @export
 mat_m_se <- function(m, DIM=2) apply(m, DIM, m_se)
 
-se <- function(x, na.rm=FALSE) sd(x, na.rm=na.rm) / sqrt(sum(not_NA(x)))
+se <- function(x, na.rm=FALSE) {
+  n <- sum(not_NA(x))
+
+  if(n < 2) return (x*0)
+
+  sd(x, na.rm=na.rm) / sqrt(n)
+}
 
 
 # We're getting some extreme values (way beyond 6SD) so let's trim them out
