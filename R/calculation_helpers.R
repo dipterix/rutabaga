@@ -23,9 +23,18 @@ mat_m_se <- function(m, DIM=2) apply(m, DIM, m_se)
 se <- function(x, na.rm=FALSE) {
   n <- sum(not_NA(x))
 
-  if(n < 2) return (x*0)
+  re <- if(n < 2) {
+    0
+  } else {
+    stats::sd(x, na.rm=na.rm) / sqrt(n)
+  }
 
-  sd(x, na.rm=na.rm) / sqrt(n)
+  if(is.na(re)) {
+    re <- 0
+  }
+
+  return(re)
+
 }
 
 
