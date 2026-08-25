@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{pm}
 \alias{pm}
-\title{Easy Way To Get +/- From A Long Vector
-
-(deprecated)}
+\title{Easy Way To Get +/- From A Long Vector}
 \usage{
 pm(x, d)
 }
@@ -15,6 +13,4 @@ pm(x, d)
 }
 \description{
 Easy Way To Get +/- From A Long Vector
-
-(deprecated)
 }

@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{ruta_axis}
 \alias{ruta_axis}
-\title{A Neat Way To Show Axis
-
-(stable)}
+\title{A Neat Way To Show Axis}
 \usage{
 ruta_axis(
   side,
@@ -30,8 +28,6 @@ ruta_axis(
 }
 \description{
 A Neat Way To Show Axis
-
-(stable)
 }
 \examples{
 \dontrun{

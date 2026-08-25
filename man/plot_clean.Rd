@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{plot_clean}
 \alias{plot_clean}
-\title{Create A Blank Plot With Given X And Y Range
-
-(stable)}
+\title{Create A Blank Plot With Given X And Y Range}
 \usage{
 plot_clean(
   xlim,
@@ -45,8 +43,6 @@ plot_clean(
 }
 \description{
 Create A Blank Plot With Given X And Y Range
-
-(stable)
 }
 \examples{
 \dontrun{

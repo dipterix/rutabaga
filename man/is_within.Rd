@@ -3,9 +3,7 @@
 \name{is_within}
 \alias{is_within}
 \alias{\%within\%}
-\title{Check if a is within the range of b
-
-(stable)}
+\title{Check if a is within the range of b}
 \usage{
 is_within(a, b)
 
@@ -18,6 +16,4 @@ a \%within\% b
 }
 \description{
 Check if a is within the range of b
-
-(stable)
 }

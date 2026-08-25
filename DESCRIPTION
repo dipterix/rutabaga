@@ -1,20 +1,19 @@
 Package: rutabaga
 Type: Package
 Title: Simple R Tools for Analysis and Visualizations
-Version: 0.1.7
+Version: 0.1.8
 Authors@R: c(
     person(given = "Zhengjia", family = "Wang", email = "dipterix.wang@gmail.com", role = c("aut", "cre", "cph")),
     person(given = "John", family = "Magnotti", email = "john.magnotti@bcm.edu", role = c("aut", "cph"))
   )
 Description: Provides functions (R, C++) to speed up array calculations. 
     Includes various tools for prettier visualizations via R base plots. 
-License: GPL-3
+License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 URL: https://github.com/dipterix/rutabaga
 BugReports: https://github.com/dipterix/rutabaga/issues
 Depends: 
-    R (>= 3.5)
+    R (>= 4.1.0)
 Imports: 
     utils,
     stats,
@@ -26,4 +25,4 @@ Imports:
     digest,
     dipsaus
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+Config/roxygen2/version: 8.0.0

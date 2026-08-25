@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{get_list_elements}
 \alias{get_list_elements}
-\title{Get Elements/Slot/Attributes From List
-
-(stable)}
+\title{Get Elements/Slot/Attributes From List}
 \usage{
 get_list_elements(
   ll,
@@ -30,6 +28,4 @@ get_list_elements(
 }
 \description{
 Get Elements/Slot/Attributes From List
-
-(stable)
 }

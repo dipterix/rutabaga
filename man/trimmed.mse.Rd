@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{trimmed.mse}
 \alias{trimmed.mse}
-\title{Sd Of Data After Trimmed
-
-(questioning)}
+\title{Sd Of Data After Trimmed}
 \usage{
 trimmed.mse(x, cutoff = 4)
 }
@@ -13,6 +11,4 @@ trimmed.mse(x, cutoff = 4)
 }
 \description{
 Sd Of Data After Trimmed
-
-(questioning)
 }

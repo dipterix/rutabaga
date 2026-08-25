@@ -9,14 +9,17 @@
 #' @importFrom magrittr %>%
 #' @importFrom stringr str_split
 #' @importFrom utils tail
-#' @import dipsaus
+#' @importFrom dipsaus %?<-%
+#' @importFrom dipsaus cat2
+#' @importFrom dipsaus get_dots
+#' @importFrom dipsaus fastmap2
 NULL
 
 .missing_arg <- alist(x = )
 
-as_call <- function(..., .list=list(), .drop_nulls = FALSE){
+as_call <- function(..., .list = list(), .drop_nulls = FALSE) {
   call <- c(list(...), .list)
-  if('...' %in% names(call)){
+  if ('...' %in% names(call)) {
     call[['...']] <- NULL
     call[[length(call) + 1]] <- quote(...)
   }

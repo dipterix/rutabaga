@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{get_data_range}
 \alias{get_data_range}
-\title{Get Data Range From A Collection Of Named Lists
-
-(questioning)}
+\title{Get Data Range From A Collection Of Named Lists}
 \usage{
 get_data_range(ll, name = "range", ...)
 }
@@ -17,6 +15,4 @@ get_data_range(ll, name = "range", ...)
 }
 \description{
 Get Data Range From A Collection Of Named Lists
-
-(questioning)
 }

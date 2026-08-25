@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{ebar_polygon}
 \alias{ebar_polygon}
-\title{Draw Symmetric Error Bars
-
-(stable)}
+\title{Draw Symmetric Error Bars}
 \usage{
 ebar_polygon(
   x,
@@ -43,8 +41,6 @@ ebar_polygon(
 }
 \description{
 Draw Symmetric Error Bars
-
-(stable)
 }
 \examples{
 \dontrun{

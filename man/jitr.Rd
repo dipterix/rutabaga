@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{jitr}
 \alias{jitr}
-\title{Return Jittered X
-
-(experimental)}
+\title{Return Jittered X}
 \usage{
 jitr(x, len = length(x), r)
 }
@@ -17,6 +15,4 @@ jitr(x, len = length(x), r)
 }
 \description{
 Return Jittered X
-
-(experimental)
 }

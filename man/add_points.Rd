@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{add_points}
 \alias{add_points}
-\title{Same As Points, But Can Be Jittered
-
-(maturing)}
+\title{Same As Points, But Can Be Jittered}
 \usage{
 add_points(x, y, jitr_x = 0, pch = 19, ...)
 }
@@ -19,6 +17,4 @@ add_points(x, y, jitr_x = 0, pch = 19, ...)
 }
 \description{
 Same As Points, But Can Be Jittered
-
-(maturing)
 }
