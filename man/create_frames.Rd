@@ -15,6 +15,18 @@ create_frames(
   exclude = NULL
 )
 }
+\arguments{
+\item{layout}{layout matrix}
+
+\item{common}{common R expression}
+
+\item{bottom, left, top, right}{expressions to evaluate at bottom, left,
+top, and right axes}
+
+\item{env}{environment to evaluate expressions}
+
+\item{exclude}{sub-figure to exclude axes}
+}
 \description{
 add decoration (frames) to plots based on their layout location
 }

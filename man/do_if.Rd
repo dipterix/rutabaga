@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{do_if}
 \alias{do_if}
-\title{Clauses With Side Effects (Plotting Etc)
-
-(questioning)}
+\title{Clauses With Side Effects (Plotting Etc)}
 \usage{
 do_if(boolean_expression, if_clause, else_clause = NULL)
 }
@@ -17,6 +15,4 @@ do_if(boolean_expression, if_clause, else_clause = NULL)
 }
 \description{
 Clauses With Side Effects (Plotting Etc)
-
-(questioning)
 }

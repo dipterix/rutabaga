@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{m_sd}
 \alias{m_sd}
-\title{Function To Return Mean And Standard Deviation (Na Ignored by default)
-
-(stable)}
+\title{Function To Return Mean And Standard Deviation (Na Ignored by default)}
 \usage{
 m_sd(x, na.rm = TRUE)
 }
@@ -15,6 +13,4 @@ m_sd(x, na.rm = TRUE)
 }
 \description{
 Function To Return Mean And Standard Deviation (Na Ignored by default)
-
-(stable)
 }

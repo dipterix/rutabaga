@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{trim}
 \alias{trim}
-\title{Trim Data By Standard Error
-
-(stable)}
+\title{Trim Data By Standard Error}
 \usage{
 trim(x, cutoff = 6)
 }
@@ -15,6 +13,4 @@ trim(x, cutoff = 6)
 }
 \description{
 Trim Data By Standard Error
-
-(stable)
 }

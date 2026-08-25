@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{trimmed.mean}
 \alias{trimmed.mean}
-\title{Mean Of Data After Trimmed
-
-(questioning)}
+\title{Mean Of Data After Trimmed}
 \usage{
 trimmed.mean(x, cutoff = 4)
 }
@@ -13,6 +11,4 @@ trimmed.mean(x, cutoff = 4)
 }
 \description{
 Mean Of Data After Trimmed
-
-(questioning)
 }

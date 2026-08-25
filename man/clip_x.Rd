@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{clip_x}
 \alias{clip_x}
-\title{Ensure Data Are Within Some Bounds
-
-(stable)}
+\title{Ensure Data Are Within Some Bounds}
 \usage{
 clip_x(x, lim)
 }
@@ -15,6 +13,4 @@ clip_x(x, lim)
 }
 \description{
 Ensure Data Are Within Some Bounds
-
-(stable)
 }

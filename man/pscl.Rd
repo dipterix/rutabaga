@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{pscl}
 \alias{pscl}
-\title{Enforce Sum To 1, Ignoring Na In The Sum, But Keeping Them In The Output
-
-(questioning)}
+\title{Enforce Sum To 1, Ignoring Na In The Sum, But Keeping Them In The Output}
 \usage{
 pscl(x)
 }
@@ -13,6 +11,4 @@ pscl(x)
 }
 \description{
 Enforce Sum To 1, Ignoring Na In The Sum, But Keeping Them In The Output
-
-(questioning)
 }

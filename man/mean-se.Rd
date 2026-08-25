@@ -3,9 +3,7 @@
 \name{m_se}
 \alias{m_se}
 \alias{mat_m_se}
-\title{Function To Return Mean And Standard Error
-
-(stable)}
+\title{Function To Return Mean And Standard Error}
 \usage{
 m_se(x)
 
@@ -20,6 +18,4 @@ mat_m_se(m, DIM = 2)
 }
 \description{
 Function To Return Mean And Standard Error
-
-(stable)
 }

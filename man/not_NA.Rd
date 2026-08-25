@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{not_NA}
 \alias{not_NA}
-\title{Return True If Not Na
-
-(stable)}
+\title{Return True If Not Na}
 \usage{
 not_NA(x)
 
@@ -15,8 +13,6 @@ not_NA(x)
 }
 \description{
 Return True If Not Na
-
-(stable)
 
 make it easier to say not is.na in a pipe'd context
 }

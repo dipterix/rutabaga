@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{rave_barplot}
 \alias{rave_barplot}
-\title{Barplot Function That Uses All The Rave Sizes And Colors
-
-(stable)}
+\title{Barplot Function That Uses All The Rave Sizes And Colors}
 \usage{
 rave_barplot(
   height,
@@ -19,6 +17,4 @@ rave_barplot(
 }
 \description{
 Barplot Function That Uses All The Rave Sizes And Colors
-
-(stable)
 }

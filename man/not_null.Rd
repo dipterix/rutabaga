@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculation_helpers.R
 \name{not_null}
 \alias{not_null}
-\title{Return True If Not Null
-
-(stable)}
+\title{Return True If Not Null}
 \usage{
 not_null(x)
 }
@@ -13,6 +11,4 @@ not_null(x)
 }
 \description{
 Return True If Not Null
-
-(stable)
 }

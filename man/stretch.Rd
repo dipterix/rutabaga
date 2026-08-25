@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{stretch}
 \alias{stretch}
-\title{Useful For Plotting When You Want To Go A Bit Beyond The Data
-
-(experimental)}
+\title{Useful For Plotting When You Want To Go A Bit Beyond The Data}
 \usage{
 stretch(x, pct)
 }
@@ -15,6 +13,4 @@ stretch(x, pct)
 }
 \description{
 Useful For Plotting When You Want To Go A Bit Beyond The Data
-
-(experimental)
 }

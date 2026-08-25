@@ -2,9 +2,7 @@
 % Please edit documentation in R/plot_helpers.R
 \name{round_range}
 \alias{round_range}
-\title{Get A Integer Interval That Contains X
-
-(maturing)}
+\title{Get A Integer Interval That Contains X}
 \usage{
 round_range(x)
 }
@@ -13,8 +11,6 @@ round_range(x)
 }
 \description{
 Get A Integer Interval That Contains X
-
-(maturing)
 }
 \examples{
 \dontrun{

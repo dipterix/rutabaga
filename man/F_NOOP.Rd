@@ -14,5 +14,6 @@ F_NOOP(x, FUN, ...)
 \item{...}{additional parameters passing to \code{FUN}}
 }
 \description{
-Execute the function (usually for its side effect) then return (invisibly) the input to the function
+Execute the function (usually for its side
+effect) then return (invisibly) the input to the function
 }
